@@ -1,1 +1,1 @@
-const dgI =(i)=>document.getElementById(i);
+const dgI=(i)=>document.getElementById(i);
