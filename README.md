@@ -346,7 +346,7 @@ Nothing, unless your looking at the console.
 
 **o** = < Object >&emsp;*Optional*
 * An optional object to display in the console. This will be displayed on a separate line which sometimes displays better in various browsers, but otherwise about the same in the rest.
-* Older browsers might not support pushing an object to the console. If at all.
+* Older browsers might not support pushing an object to the console very well... If at all.
 
 
 <hr>
