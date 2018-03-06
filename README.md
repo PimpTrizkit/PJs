@@ -26,6 +26,7 @@ NOTE: I have used all of these functions in various situations and feel good abo
 * [Add/Remove Click Events - "pARCE"](#addremove-click-events--parcejs)
 * [Deselect All - "pDA"](#deselect-all--pdajs)
 * [Get Sibling - "pGS"](#get-sibling--pgsjs)
+* [Log - "pLog"](#log--plogjs)
 * [Trim - "pTrim" (Fastest Trim in the JS world)](#trim--ptrimjs---fastest-trim-in-the-js-world)
 
 <hr>
@@ -307,8 +308,8 @@ If the optional object is used, it will be on a separate line. Some browsers lik
 
 <h3>Code:</h3>
 
-`const pLD = [true,"appName",true];
-const pLog=(m,o)=>{if(pLD[0]){console.log(pLD[1]+" "+(pLD[2]?"("+(new Date()).toLocaleString()+")":"")+" > "+m);if(o)console.log(o);}}`
+```const pLD = [true,"appName",true];
+const pLog=(m,o)=>{if(pLD[0]){console.log(pLD[1]+" "+(pLD[2]?"("+(new Date()).toLocaleString()+")":"")+" > "+m);if(o)console.log(o);}}```
 
 
 <h3>Usage:</h3>
