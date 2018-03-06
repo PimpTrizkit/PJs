@@ -49,7 +49,7 @@ Create Element  (dcE.js)
 
 Get Element by Class Name  (dgCN.js)
 ------------------------
-*This is just an alias function to shorten other JS code.
+*This is just an alias function to shorten other JS code.*
 
 "dgCN" stands for "document.getElementsByClassName".
 
