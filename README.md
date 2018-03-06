@@ -308,8 +308,10 @@ If the optional object is used, it will be on a separate line. Some browsers lik
 
 <h3>Code:</h3>
 
-```const pLD = [true,"appName",true];
-const pLog=(m,o)=>{if(pLD[0]){console.log(pLD[1]+" "+(pLD[2]?"("+(new Date()).toLocaleString()+")":"")+" > "+m);if(o)console.log(o);}}```
+```
+const pLD = [true,"appName",true];
+const pLog=(m,o)=>{if(pLD[0]){console.log(pLD[1]+" "+(pLD[2]?"("+(new Date()).toLocaleString()+")":"")+" > "+m);if(o)console.log(o);}}
+```
 
 
 <h3>Usage:</h3>
