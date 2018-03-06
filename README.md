@@ -86,6 +86,6 @@ A HTML Collection of HTML Elements that have `className` equal to the parameter 
 <h3>Params - dgCN(c):</h3>
 
 **c** = < classNameString >
-* A string to search the DOM for elements of the same className.
+* A string to search in `document` for elements of the same className.
 * This function uses `document.getElementsByClassName()`, and is just an alias.
 
