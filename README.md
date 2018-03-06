@@ -54,7 +54,7 @@ const dcE=(t,a,b,c,d)=>{let l=a?a.length?a.length:0:0,k=b?b.length?b.length:0:0,
 <h3>Usage:</h3>
 
 ```JavaScript
-dcE("elementType", [[key,value],[key,value],...], [[key,value],[key,value],...], [[HTMLElement],[HTMLElement],...], [["eventType", callback], ["eventType", callback],...]);
+let e = dcE("elementType", [[key,value],[key,value],...], [[key,value],[key,value],...], [[HTMLElement],[HTMLElement],...], [["eventType", callback], ["eventType", callback],...]);
 ```
 * use `false` instead of an array to skip that parameter.
 
@@ -115,7 +115,7 @@ const dgCN=(c)=>document.getElementsByClassName(c);
 <h3>Usage:</h3>
 
 ```JavaScript
-dgCN("myClassName");
+let hc = dgCN("myClassName");
 ```
 
 <h3>Return:</h3>
@@ -149,7 +149,7 @@ const dgCNz=(c)=>document.getElementsByClassName(c)[0];
 <h3>Usage:</h3>
 
 ```JavaScript
-dgCNz("myClassName");
+let e = dgCNz("myClassName");
 ```
 
 <h3>Return:</h3>
@@ -183,7 +183,7 @@ const dgI=(i)=>document.getElementById(i);
 <h3>Usage:</h3>
 
 ```JavaScript
-dgI("myID");
+let e = dgI("myID");
 ```
 
 <h3>Return:</h3>
@@ -416,7 +416,7 @@ const pT=(s)=>{var s=s.replace(/^\s\s*/,''),w=/\s/,i=s.length;while(w.test(s.cha
 <h3>Usage:</h3>
 
 ```JavaScript
-pT("   Where does White Space *actually* come from? And then that begs a question, whats Black Space? Can space be Purple or Plaid? And whatever happened to My Space?     ");
+let s = pT("   Where does White Space *actually* come from? And then that begs a question, whats Black Space? Can space be Purple or Plaid? And whatever happened to My Space?     ");
 ```
 
 <h3>Return:</h3>
