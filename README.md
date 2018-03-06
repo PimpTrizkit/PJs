@@ -37,7 +37,7 @@ NOTE: I have used all of these functions in various situations and feel good abo
 
 <h2>Create Element  (dcE.js)</h2>
 
-&emsp;&emsp;&emsp;&emsp;&emsp;[Back to Table of Contents](#table-of-contents)
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[Back to Table of Contents](#table-of-contents)
 
 "dcE" is short for "document.createElement".
 
@@ -96,6 +96,8 @@ A HTML Element of the type specified and with any attributes, appended children,
 
 <h2>Get Elements by Class Name  (dgCN.js)</h2>
 
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[Back to Table of Contents](#table-of-contents)
+
 *This is just an alias function to shorten other JS code.*
 
 "dgCN" alias for "document.getElementsByClassName".
@@ -127,6 +129,8 @@ A HTML Collection of HTML Elements, from inside `document`,  that have `classNam
 <hr>
 
 <h2>Get First Element by Class Name  (dgCNz.js)</h2>
+
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[Back to Table of Contents](#table-of-contents)
 
 *This is just an alias function to shorten other JS code.*
 
@@ -160,6 +164,8 @@ The first HTML Element, from inside `document`, that has `className` equal to th
 
 <h2>Get Element by ID  (dgI.js)</h2>
 
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[Back to Table of Contents](#table-of-contents)
+
 *This is just an alias function to shorten other JS code. I just reinvented the exact same wheel here.*
 
 "dgI" alias for "document.getElementByID".
@@ -191,6 +197,8 @@ A HTML Element, from inside `document`, that has `id` equal to the parameter spe
 <hr>
 
 <h2>Add/Remove Click Events  (pARCE.js)</h2>
+
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[Back to Table of Contents](#table-of-contents)
 
 *Dependency: `pDA` (disableable)*
 
@@ -233,6 +241,8 @@ Nothing, get used to it. But your thing works now.
 <hr>
 
 <h2>Add/Remove any Event  (pARE.js)</h2>
+
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[Back to Table of Contents](#table-of-contents)
 
 This will add or remove a callback associated with an event type and element. It also allows for use of the optional `once` attribute that will automatically remove the event listener from the element once it fires the first time, therefore, it only fires "once".
 
@@ -279,6 +289,8 @@ Nothing, get used to it. But your thing works now.
 
 <h2>Deselect All  (pDA.js)</h2>
 
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[Back to Table of Contents](#table-of-contents)
+
 This will de-select all highlighted text on the page.
 
 <h3>Code:</h3>
@@ -311,6 +323,8 @@ Nothing, get over it.
 <hr>
 
 <h2>Get Sibling  (pGS.js)</h2>
+
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[Back to Table of Contents](#table-of-contents)
 
 This will get the next (or previous) sibling in the container while skipping text nodes. Or rather, it will skip all nodes that are not of `nodeType` == `1`.
 
@@ -345,6 +359,8 @@ A HTML Element that is a sibling of the specified element. This returned element
 <hr>
 
 <h2>Log  (pL.js)</h2>
+
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[Back to Table of Contents](#table-of-contents)
 
 *Dependency `pLS`*
 
@@ -383,6 +399,8 @@ Nothing, unless your looking at the console.
 <hr>
 
 <h2>Trim  (pT.js) - Fastest trim in the JS world</h2>
+
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[Back to Table of Contents](#table-of-contents)
 
 This will trim the white space from around a string of text. It's fastest version I've ever tested. Credit to someone, somewhere, I didn't write it originally. And I can't find who did, kudos to you, John Doe. I just rewrote/refactored it. Just try to beat it's speed on a variety of string sizes, and amounts/types of white space. And I will replace this if you succeed.
 <br><br><h3>Code:</h3>
