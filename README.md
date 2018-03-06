@@ -184,7 +184,7 @@ Nothing, get over it.
 
 <hr>
 
-<h2>Get Next Sibling (obGetNextSibling.js)</h2>
+<h2>Get Next Sibling (pGetNextSibling.js)</h2>
 
 This will get the next sibling in the DOM while skipping text nodes. Or rather, it will skip all nodes that are not of `nodeType` == `1`.
 
