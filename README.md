@@ -10,7 +10,7 @@ As you can see, a number of the functions are simple. For those, the real work w
 * *Some of these are old and might have already been added into the new javascript standard (excluding aliases).*
 * *Debuging/Testing/Refining*
 
-Note: None of these functions below are meant to be linked in separately. They are to be copied and pasted into the `head` of your HTML on a "as desired" basis. Also, I have used all of these in various situations, but I have not fully added all practical features yet, nor testing in all relevant situations.
+Note: None of these functions below are meant to be linked in separately. They are to be copied and pasted into the `head` of your HTML on a "as desired" basis. Also, I have used all of these in various situations and feel good about their performance. But, I have not fully added all practical features yet, nor testing in all relevant situations.
 
 <hr>
 
