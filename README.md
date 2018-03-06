@@ -80,7 +80,7 @@ A HTML Element of the type specified and with any attributes, appended children,
 
 <h3>Return:</h3>
 
-A HTML Collection of HTML Elements that have `className` equal to the parameter specified.
+A HTML Collection of HTML Elements that have `className` equal to the parameter specified from inside `document`.
 
 
 <h3>Params - dgCN(c):</h3>
