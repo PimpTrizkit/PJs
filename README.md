@@ -5,11 +5,12 @@ Create Element  (dcE.js)
 ------------------------
 "dcE" stands for "document.createElement".
 
-usage: `dcE("elementType", [[key,value],[key,value],...], [[key,value],[key,value],...], [[HTMLElement],[HTMLElement],...], [["eventType", callback], ["eventType", callback],...]);`
+Usage:
+`dcE("elementType", [[key,value],[key,value],...], [[key,value],[key,value],...], [[HTMLElement],[HTMLElement],...], [["eventType", callback], ["eventType", callback],...]);`
 * use `false` instead of an array to skip that parameter.
 
-Params:
--------
+Params - dcE(t,a,b,c,d): 
+----------------------
 t  = <element type>
        * A string, such as: `"div"`, `"a"`, `"ul"`, `"span"`, etc..  
        * This uses `document.createElement()`. Therefore, this string must be compatible.
