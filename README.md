@@ -265,7 +265,7 @@ pARE(true,myElement,"mousemove",myCallbackFunc,false);
 ```JavaScript
 pARE(true,myElement,"click",myCallbackFunc,true);
 ```
-...will simulate `pARCE` usage but without clearing the highlight from an accidental double click.
+...could be used to simulate `pARCE` usage but without clearing the highlight from an accidental double click.
 
 <h3>Return:</h3>
 
