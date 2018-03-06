@@ -36,25 +36,25 @@ A HTML Element of the type specified and with any attributes, appended children,
 
 <h4>---NOTE: All parameters below will process the array backwards (Last item in the array will be applied first).</h4>
 
-**a** = < 2D array of attributes ([key,value]) to set >  OR  < false equivalent >
+**a** = < 2D array of attributes ([key,value]) to set >&emsp;OR&emsp;< false equivalent >
 * The 2D array example is: `[["checked", false], ["id", "foo"]]`. Note: the first item must be a quoted ("") string. The second item is object-safe. And as an example, the constant `false` was used as a second item here.
 * This uses the `element.setAttribute("attribute", value)`  method of setting attributes.
 * The < false equivalent > is suggested to use `false` and it will skip this parameter, same as not including this parameter, or making it optional.
 * You must include this parameter in order to use the below parameters (use `false` if not needed).
 
-**b** = < 2D array of attributes ([key,value]) to set by dot notation >  OR  < false equivalent >
+**b** = < 2D array of attributes ([key,value]) to set by dot notation >&emsp;OR&emsp;< false equivalent >
 * The 2D array example is: `[["innerHTML", hVar], ["disabled", "true"]]`. Note: the first element must be a quoted ("") string. The second is object-safe. And as an example, a variable `hVar` was used as a second item here.
 * This uses the `element["attribute"]` alternate method of dot notation access to set an attribute. Note: There are differences between this and the method above. `.setAttribute()` is often suggested instead of dot notation. However, there are otherwise no differences in the code here in `dcE`.
 * The < false equivalent > is suggested to use `false` and it will skip this parameter, same as not including this parameter, or making it optional.
 * You must include this parameter in order to use the below parameters (use `false` if not needed).
 
-**c** = < 1D array of children to append >  OR  < false equivalent >
+**c** = < 1D array of children to append >&emsp;OR&emsp;< false equivalent >
 * The 1D array example is: `[cDiv, myChildElement, dcE("span")]`. Note: These items are expected, but not verified, to be html elements that can be append into other html elements. Also as an example, `dcE` itself was used as an item in the array.
 * This uses the `element.appendChild(child)` method of adding html elements to another html container.
 * The < false equivalent > should be `false` and it will skip this parameter, same as not including this parameter, or making it optional.
 * You must include this parameter in order to use the below parameters. (use `false` if not needed)
 
-**d** = < 2D array of event types and callback functions to add as Event Listeners >  OR  < false equivalent >
+**d** = < 2D array of event types and callback functions to add as Event Listeners >&emsp;OR&emsp;< false equivalent >
 * The 2D array example is: `[["click", myClickFunc], ["mouseover", (e)=>{e.target.style.color="red";}]]`. Note: the first element must be a quoted ("") string. The second should be a function reference, as in, no `()`.  And as an example, a in-line anonymous arrow function was used as a second item here.
 * This uses the `element.addEventListener("type", callback)` method of setting an Event Listener.
 * The < false equivalent > is suggested to use `false` and it will skip this parameter, same as not including this parameter, or making it optional.
@@ -159,12 +159,12 @@ This will de-select all highlighted text on the page.
 <h3>Code:</h3>
 
 `const pDeselectAll=(e,p)=>{if(document.selection)document.selection.empty();else if(window.getSelection)window.getSelection().removeAllRanges();if(p&&e)e.stopPropagation();}`
-*NOTE: The default is to NOT stop propagation of the event.
+* NOTE: The default is to NOT stop propagation of the event.
 
 
 <h3>Usage:</h3>
 
-`pDeselectAll()`  OR  `element.addEventListener("mouseup",pDeselectAll);`  OR  `document.addEventListener("mousemove", (e)=>{if(e.buttons > 0) pDeselectAll(e,true);});`
+`pDeselectAll()`&emsp;OR&emsp;`element.addEventListener("mouseup",pDeselectAll);`&emsp;OR&emsp;`document.addEventListener("mousemove", (e)=>{if(e.buttons > 0) pDeselectAll(e,true);});`
 
 
 <h3>Return:</h3>
