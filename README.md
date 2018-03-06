@@ -394,7 +394,7 @@ A HTML Element that is a sibling of the specified element. This returned element
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[Back to Table of Contents](#table-of-contents)
 
-&emsp;&emsp;&emsp;&emsp;*"It's [Log!](https://www.youtube.com/watch?v=2C7mNr5WMjA)" - PT*
+&emsp;&emsp;&emsp;&emsp;*"It's [Log!](https://www.youtube.com/watch?v=2C7mNr5WMjA)" - Ren & Stimpy*
 
 *Dependency `pLS`*
 
