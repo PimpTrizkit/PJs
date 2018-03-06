@@ -416,7 +416,7 @@ const pT=(s)=>{var s=s.replace(/^\s\s*/,''),w=/\s/,i=s.length;while(w.test(s.cha
 <h3>Usage:</h3>
 
 ```JavaScript
-pT("   Where does White Space *actually* come from? And then that begs a question, whats Black Space?   ");
+pT("   Where does White Space *actually* come from? And then that begs a question, whats Black Space? Can space be Purple or Plaid?   ");
 ```
 
 <h3>Return:</h3>
