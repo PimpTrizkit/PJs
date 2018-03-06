@@ -4,7 +4,7 @@
 
 &emsp;&emsp;&emsp;&emsp;*"This is what I write my JavaScript in." - PT*
 
-Pimped Javascript - Just a library of my javascript functions, or shims. They are generally built for speed, size, versatility, and portability (copy and paste-able). Readability will be sacrificed, because they are optimized for usage right out-of-the-box. Therefore, this documentation will have to make up for that.
+Pimped Javascript - Just a library of my javascript functions and shims. They are generally built for speed, size, versatility, and portability (copy and paste-able). Readability will be sacrificed, because they are optimized for usage right out-of-the-box. Therefore, this documentation will have to make up for that.
 
 As you can see, a number of the functions are simple. For these, the real work will be to help the documentation and in formalizing a standard.
 
