@@ -1,1 +1,1 @@
-const dgCNz =(o)=>document.getElementsByClassName(o)[0];
+const dgCNz =(c)=>document.getElementsByClassName(c)[0];
