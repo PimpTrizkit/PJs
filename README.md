@@ -1,3 +1,5 @@
+<h3>Welcome to my...</h3>
+<hr>
 <h1>PJs</h1>
 
 Pimped Javascript - Just a library of my javascript functions, or shims. They are generally built for speed, size, versatility, and portability (copy and paste-able). Readability will be sacrificed, because they are optimized for usage right out-of-the-box. Therefore, this documentation will have to make up for that.
