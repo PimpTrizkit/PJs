@@ -221,6 +221,7 @@ Nothing, get used to it. But your thing works nows.
 * A true or false equivalent boolean used to set the `once` attribute. Suggested to use `true` or `false`.
 * The `once` attribute will allow the event listener to run only once, then the browswer will remove it from the element automatically.
 * If omitted, it defaults to a multi use event listener.
+* Skipped if `a` is `false`.
 
 
 <hr>
@@ -252,8 +253,8 @@ Nothing, get over it.
 * Only required to stop event propagation.
 * Not required when used as a stand-alone function (non-event listener).
 
-**p** = < stopPropagation >&emsp;*Optional*
-* Required < true equivalent > value to stop event propagation. Suggested to use `true` (or `false`).
+**p** = < StopPropagation Boolean >&emsp;*Optional*
+* A true or false equivalent boolean used to stop event propagation, or not. Suggested to use `true` to stop propagation or `false` to continue propagation.
 * When used as a direct event listener, `pDeselectAll` will default to contining propagation.
 
 
@@ -285,6 +286,6 @@ a HTML Element that is a sibling of the specified element. This returned element
 * The Node or Element from which to start searching.
 * `nodeType` not equal to `1` are skipped, until one is found, and that one is returned.
 
-**p** = < true/false equivalent >&emsp;*Optional*
-* The direction to search. `true` will search previous siblings. `false` will search next siblings.
+**p** = < NextPrevious Boolean >&emsp;*Optional*
+* A true or false equivalent boolean used to determine which direction to search. Suggested to use `true` to search previous siblings and `false` to search next siblings.
 * If omitted, defaults to searching next siblings.
