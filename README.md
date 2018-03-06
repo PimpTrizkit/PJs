@@ -339,7 +339,7 @@ Nothing, unless your looking at the console.
 
 <h3>Params - pL(m,o):</h3>
 
-*Keep in mind, the actual logging settings are set in `pLS` before runtime*
+*Keep in mind, the actual logging settings are set in `pLS` before runtime.*
 
 **m** = < Message String >&emsp;* *REQUIRED*
 * The string to display to the console.
