@@ -80,12 +80,42 @@ A HTML Element of the type specified and with any attributes, appended children,
 
 <h3>Return:</h3>
 
-A HTML Collection of HTML Elements that have `className` equal to the parameter specified from inside `document`.
+A HTML Collection of HTML Elements, from inside `document`,  that have `className` equal to the parameter specified. NOTE: If no such elements exists, the collection will be empty.
 
 
 <h3>Params - dgCN(c):</h3>
 
 **c** = < classNameString >
 * A string to search in `document` for elements of the same className.
+* This function uses `document.getElementsByClassName()`, and is just an alias.
+
+<hr>
+
+<h2>Get First Element by Class Name  (dgCNz.js)</h2>
+
+*This is just an alias function to shorten other JS code.*
+
+"dgCNz" stands for "document.getElementsByClassName (zero index)".
+
+
+<h3>Code:</h3>
+
+`const dgCNz=(c)=>document.getElementsByClassName(c)[0];`
+
+
+<h3>Usage:</h3>
+
+`dgCNz("className")`
+
+
+<h3>Return:</h3>
+
+The first HTML Element, from inside `document`, that has `className` equal to the parameter specified. NOTE: If no such element exists, `undefined` will be returned.
+
+
+<h3>Params - dgCN(c):</h3>
+
+**c** = < classNameString >
+* A string to search in `document` for the first occurance of an element with the same className.
 * This function uses `document.getElementsByClassName()`, and is just an alias.
 
