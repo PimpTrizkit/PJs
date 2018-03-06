@@ -23,7 +23,7 @@ NOTE: I have used all of these functions in various situations and feel good abo
 * [Get Elements by Class Name - "dgCN"&emsp;*(Alias)*](#get-elements-by-class-name--dgcnjs)
 * [Get First Element by Class Name - "dgCNz"&emsp;*(Alias)*](#get-first-element-by-class-name--dgcnzjs)
 * [Get Element by ID - "dgI"&emsp;*(Alias)*](#get-element-by-id--dgijs)
-* [Add/Remove Click Events - "pARCE"](#get-sibling--pgsjs)
+* [Add/Remove Click Events - "pARCE"](#addremove-click-events--parcejs)
 * [Deselect All - "pDA"](#deselect-all--pdajs)
 * [Get Sibling - "pGS"](#get-sibling--pgsjs)
 
