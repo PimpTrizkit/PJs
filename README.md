@@ -31,7 +31,7 @@ NOTE: I have used all of these functions in various situations and feel good abo
 * [Deselect All - "pDA"](#deselect-all--pdajs)
 * [Get Sibling - "pGS"](#get-sibling--pgsjs)
 * [Log - "pL"](#log--pljs)
-* [Trim - "pT" (The best Trim I have found)](#trim--ptjs---fastest-trim-in-the-js-world)
+* [Trim - "pT" (The best Trim I have found)](#trim--ptjs---the-best-trim-i-have-found)
 <br><br>
 <hr>
 
