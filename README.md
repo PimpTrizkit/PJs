@@ -449,7 +449,7 @@ const pT=(s)=>{var s=s.replace(/^\s\s*/,''),w=/\s/,i=s.length;while(w.test(s.cha
 <h3>Usage:</h3>
 
 ```JavaScript
-let s = pT("   Where does White Space *actually* come from? And then that begs a question, whats Black Space? Can space be Purple or Plaid? And whatever happened to My Space?     ");
+let s = pT("   Where does White Space *actually* come from? And then that begs a question, do we use Black Space to remove it? Can space be Purple or Plaid? And whatever happened to My Space?     ");
 ```
 
 <h3>Return:</h3>
