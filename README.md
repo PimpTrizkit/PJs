@@ -291,7 +291,7 @@ Nothing, get used to it. But your thing works now.
 * A String that represents the event type to which is registered the callback listener.
 
 **c** = < Callback Function >&emsp;* *REQUIRED*
-* The callback function to which to attach to or remove from the event on the specifed element (`e` above).
+* The callback function to attach to or remove from the event on the specifed element (`e` above).
 
 **o** = < Once/Multi Boolean >&emsp;*Optional*
 * A true or false equivalent boolean used to set the `once` attribute. Suggested to use `true` or `false`.
