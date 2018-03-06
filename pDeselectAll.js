@@ -1,1 +1,1 @@
-const pDeselectAll=(e)=>{if(document.selection)document.selection.empty();else if(window.getSelection)window.getSelection().removeAllRanges();if (e) e.stopPropagation();}
+const pDeselectAll=(e,p)=>{if(document.selection)document.selection.empty();else if(window.getSelection)window.getSelection().removeAllRanges();if(p&&e)e.stopPropagation();}
