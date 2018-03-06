@@ -132,7 +132,7 @@ A HTML Collection of HTML Elements, from inside `document`,  that have `classNam
 
 *This is just an alias function to shorten other JS code.*
 
-"dgCNz" stands for "document.getElementsByClassName (zero index)".
+"dgCNz" alias for "document.getElementsByClassName (zero index)".
 
 This will search inside `document` for the first element that has a `className` equal to the string specified. And then return that element or `undefined`.
 
@@ -167,7 +167,7 @@ The first HTML Element, from inside `document`, that has `className` equal to th
 
 *This is just an alias function to shorten other JS code. I just reinvented the exact same wheel here.*
 
-"dgI" stands for "document.getElementByID".
+"dgI" alias for "document.getElementByID".
 
 Searches inside `document` for a HTML Element with `id` equal to the provided string, and returns it. NOTE: The `id` attribute is meant to be unique amongst all elements in the DOM that use it.
 
