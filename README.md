@@ -281,7 +281,7 @@ This will get the next (or previous) sibling in the container while skipping tex
 
 <h3>Return:</h3>
 
-a HTML Element that is a sibling of the specified element. This returned element is not necessairly the direct sibling of the element specified. This function will skip nodes without type equal to `1`, and return the nearest relevant node. Or `false` if no relevant nodes were found.
+A HTML Element that is a sibling of the specified element. This returned element is not necessairly the direct sibling of the element specified. This function will skip nodes without type equal to `1`, and return the nearest relevant node. Or `false` if no relevant nodes were found.
 
 
 <h3>Params - pGS(n,p):</h3>
@@ -293,3 +293,30 @@ a HTML Element that is a sibling of the specified element. This returned element
 **p** = < NextPrevious Boolean >&emsp;*Optional*
 * A true or false equivalent boolean used to determine which direction to search. Suggested to use `true` to search previous siblings and `false` to search next siblings.
 * If omitted, `pGS` will default to searching next siblings.
+
+
+<hr>
+
+<h2>Trim  (pTrim.js) - Fastest trim in the JS world</h2>
+
+This will trim the white space from around a string of text. It's fastest version I've ever tested. Credit to someone, somewhere, I didn't write it. I just rewrote/refactored it. Just try to beat it's speed on a variety of string sizes, and amounts/types of white space. And I will replace this if you succeed.
+
+
+<h3>Code:</h3>
+
+`const pTrim=(s)=>{var s=s.replace(/^\s\s*/,''),w=/\s/,i=s.length;while(w.test(s.charAt(--i)));return s.slice(0,i+1);}`
+
+
+<h3>Usage:</h3>
+
+`pTrim(string)`
+
+
+<h3>Return:</h3>
+
+A copy of the specified string but with white space removed from the beginning and end.
+
+<h3>Params - pTrim(s):</h3>
+
+**s** = < Trim String >&emsp;* *REQUIRED*
+* The string from which a copy is made and white space is removed from the front and back, and then the modified copy is returned.
