@@ -2,7 +2,7 @@
 
 Pimped Javascript - Just a library of my javascript functions. They are generally built for speed, size, versatility, and portability (copy and paste-able). Readability will be sacrificed. Because they are optimized for usage right out-of-the-box.
 
-As you can see, a number of the functions are simple. For those, the real work will be to help the documentation and in formalizing a standard (for instance: Should `pDeselectAll` be `pDA` to match the short-hand naming theme?).
+As you can see, a number of the functions are simple. For those, the real work will be to help the documentation and in formalizing a standard. Speaking of which, they all could probably use some help on those issues (for instance: Should `pDeselectAll` be `pDA` to match the short-hand naming theme?).
 
 Note: None of these are meant to be linked in separately. They are to be copied and pasted into the `head` of your HTML on a "as desired" basis.
 
