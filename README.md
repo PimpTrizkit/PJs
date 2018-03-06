@@ -334,7 +334,7 @@ Nothing, get over it.
 
 **p** = < StopPropagation Boolean >&emsp;*Optional*
 * A true or false equivalent boolean used to stop event propagation, or not. Suggested to use `true` to stop propagation or `false` to continue propagation.
-* When used as a direct event listener, `pDeselectAll` will default to contining propagation.
+* When used as a direct event listener, or if left omitted, `pDeselectAll` will default to contining propagation.
 <br><br>
 <hr>
 
