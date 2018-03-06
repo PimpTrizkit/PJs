@@ -151,15 +151,16 @@ The first HTML Element, from inside `document`, that has `className` equal to th
 
 <h2>Get Element by ID  (dgI.js)</h2>
 
-*This is just an alias function to shorten other JS code. Just reinventing the exact same wheel here.*
+*This is just an alias function to shorten other JS code. I just reinvented the exact same wheel here.*
 
 "dgI" stands for "document.getElementByID".
+
+Searches inside `document` for a HTML Element with `id` equal to the provided string, and returns it. NOTE: The `id` attribute is meant to be unique amongst all elements in the DOM that use it.
 
 
 <h3>Code:</h3>
 
 `const dgI =(i)=>document.getElementById(i);`
-Searches inside `document` for a HTML Element with `id` equal to the provided string, and returns it. NOTE: The `id` attribute is meant to be unique amongst all elements in the DOM that use it.
 
 
 <h3>Usage:</h3>
