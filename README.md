@@ -220,7 +220,7 @@ Nothing, get used to it. But your thing works nows.
 **o** = < Once/Multi Boolean >&emsp;*Optional*
 * A true or false equivalent boolean used to set the `once` attribute. Suggested to use `true` or `false`.
 * The `once` attribute will allow the event listener to run only once, then the browswer will remove it from the element automatically.
-* If omitted, it defaults to a multi use event listener.
+* If omitted, `pARCE` will default to a multi-use event listener.
 * Skipped if `a` is `false`.
 
 
@@ -288,4 +288,4 @@ a HTML Element that is a sibling of the specified element. This returned element
 
 **p** = < NextPrevious Boolean >&emsp;*Optional*
 * A true or false equivalent boolean used to determine which direction to search. Suggested to use `true` to search previous siblings and `false` to search next siblings.
-* If omitted, defaults to searching next siblings.
+* If omitted, `pGS` will default to searching next siblings.
