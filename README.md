@@ -1,7 +1,7 @@
 # PJs
 Pimped Javascript - Just a library of my javascript functions. They are generally very tight and fast and versatile and copy/paste - able. Readability might be sacrificed.
 
-Note: None of these are meant to be linked in separately. They are to be copied and pasted into the `head` of your HTML on a "as needed" basis.
+Note: None of these are meant to be linked in separately. They are to be copied and pasted into the `head` of your HTML on a "as desired" basis.
 
 <hr>
 
