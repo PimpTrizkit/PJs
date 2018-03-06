@@ -35,7 +35,7 @@ Create Element  (dcE.js)
 
 **c** = <1D array of children to append> or < false equivalent >
 * The 1D array example is: `[cDiv, tDiv, dcE("span")]`. Note: These items are expected, but not verified, to be html elements that can be append into other html elements. Also as an example, `dcE` itself was used as an item in the array.
-* This uses the `element.appendChild(child)` method of adding html elements to another html element.
+* This uses the `element.appendChild(child)` method of adding html elements to another html container.
 * The < false equivalent > should be `false` and it will skip this parameter, same as not including this parameter.
 * You must include this parameter in order to use the below parameters. (use `false` if not needed)
 
