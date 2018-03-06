@@ -3,7 +3,8 @@ Pimped Javascript - Just a library of my javascript functions. They are generall
 
 Note: None of these are meant to be linked in separately. They are to be copied and pasted into the `head` of your HTML on a "as needed" basis.
 
-=======================================<br>
+=======================================
+
 Create Element  (dcE.js)
 ------------------------
 "dcE" stands for "document.createElement".
@@ -47,7 +48,8 @@ Create Element  (dcE.js)
 * This uses the `element.addEventListener("type", callback)` method of setting an Event Listener.
 * The < false equivalent > is suggested to use `false` and it will skip this parameter, same as not including this parameter.
 
-=======================================<br>
+=======================================
+
 Get Element by Class Name  (dgCN.js)
 ------------------------
 *This is just an alias function to shorten other JS code.*
