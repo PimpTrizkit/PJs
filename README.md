@@ -19,8 +19,7 @@ NOTE: I have used all of these in various situations and feel good about their p
 <h2>Table of Contents</h2>
 
 * [Create Element - "dcE"](#create-element--dcejs)
-* Create Element - "dcE"
-* Get Elements by Class Name - "dgCN"&emsp;*(Alias)*
+* [Get Elements by Class Name - "dgCN"&emsp;*(Alias)*](#get-elements-by-class-name--dgcnjs)
 * Get First Element by Class Name - "dgCNz"&emsp;*(Alias)*
 * Get Element by ID - "dgI"&emsp;*(Alias)*
 * Deselect All - "pDA"
