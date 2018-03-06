@@ -216,7 +216,9 @@ const pARCE=(a,e,c,o)=>{if(a){e.addEventListener("click",c,(o?{once:true}:false)
 
 <h3>Usage:</h3>
 
-`pARCE(addRemove,element,callback,once)`
+```JavaScript
+pARCE(addRemove,element,callback,once);
+```
 
 <h3>Return:</h3>
 
