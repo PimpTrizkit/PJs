@@ -160,7 +160,7 @@ Searches inside `document` for a HTML Element with `id` equal to the provided st
 
 <h3>Code:</h3>
 
-`const dgI =(i)=>document.getElementById(i);`
+`const dgI=(i)=>document.getElementById(i);`
 
 
 <h3>Usage:</h3>
