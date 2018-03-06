@@ -378,6 +378,8 @@ A HTML Element that is a sibling of the specified element. This returned element
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[Back to Table of Contents](#table-of-contents)
 
+&emsp;&emsp;&emsp;&emsp;*"It's [Log!](https://www.youtube.com/watch?v=2C7mNr5WMjA)" - PT
+
 *Dependency `pLS`*
 
 This will log to the console messages and objects. There is a global data array `pLS` (length `3`) that is added which stores your logging settings. Change your settings here. The first item of the array is a boolean to turn on or off the logging. The second item is the name of the app/script to display in the console, set to `""` if undesired. And the last item in the array is a boolean to determine if a timestamp should be placed before the message (but after the app/script name).
