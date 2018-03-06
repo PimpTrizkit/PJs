@@ -11,7 +11,7 @@ As you can see, a number of the functions are simple. For those, the real work w
 *Speaking of which, here is the needed help for all of them:*
 * *Documentation*
 * *Formalizing standards*
-* *Some of these are old and might have already been added into newer javascript standards (excluding aliases).*
+* *Some of these are old and might have already been incorporated into newer javascript standards (excluding aliases).*
 * *Debuging/Testing/Refining*
 
 NOTE: None of these functions (files) are meant to be linked in separately. They are to be copied and pasted into the `head` of your HTML on a "as desired" basis.
