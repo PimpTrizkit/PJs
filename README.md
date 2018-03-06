@@ -297,6 +297,42 @@ A HTML Element that is a sibling of the specified element. This returned element
 
 <hr>
 
+<h2>Log  (pLog.js)</h2>
+
+*Dependency `pLD`*
+
+This will log to the console messages and objects. There is a global data array `pLD` that is added which stores your logging settings. `pLD` is length `3`. Change your settings here. The first item of the array is a boolean to turn on or off the logging. The second item is the name of the app/script to display in the console. And the last item in the array is a boolean to determine if a timestamp should be placed before the message (but after the app/script name).
+
+If the optional object is used, it will be on a separate line. Some browsers like this better.
+
+<h3>Code:</h3>
+
+`const pLD = [true,"appName",true];
+const pLog=(m,o)=>{if(pLD[0]){console.log(pLD[1]+" "+(pLD[2]?"("+(new Date()).toLocaleString()+")":"")+" > "+m);if(o)console.log(o);}}`
+
+
+<h3>Usage:</h3>
+
+`pLog("Hello FooBar World",foobar);`
+
+
+<h3>Return:</h3>
+
+Nothing, unless your looking at the console.
+
+<h3>Params - pLog(m,o):</h3>
+
+*Keep in mind, the rest of the logging parameters are set in `pLD`*
+
+**m** = < Message String >&emsp;* *REQUIRED*
+* The string to display to the console.
+
+**o** = < Object >&emsp;*Optional*
+* An optional object to display in the console. This will be displayed on a separate line which is sometimes better in different browsers, but otherwise about the same in the rest.
+
+
+<hr>
+
 <h2>Trim  (pTrim.js) - Fastest trim in the JS world</h2>
 
 This will trim the white space from around a string of text. It's fastest version I've ever tested. Credit to someone, somewhere, I didn't write it originally. And I can't find who did, kudos to you, John Doe. I just rewrote/refactored it. Just try to beat it's speed on a variety of string sizes, and amounts/types of white space. And I will replace this if you succeed.
