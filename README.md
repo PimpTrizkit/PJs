@@ -317,9 +317,9 @@ const pDA=(e,p)=>{if(document.selection)document.selection.empty();else if(windo
 <h3>Usage:</h3>
 
 ```JavaScript
-pDA()
-element.addEventListener("mouseup",pDA);
-document.addEventListener("mousemove", (e)=>{if(e.buttons > 0) pDA(e,true);});
+pDA()  //  Stand-Alone Function  (non-event)
+element.addEventListener("mouseup",pDA);   //  Direct Event Listener
+document.addEventListener("mousemove", (e)=>{if(e.buttons > 0) pDA(e,true);});  //  Embeded Event Listener
 ```
 
 <h3>Return:</h3>
