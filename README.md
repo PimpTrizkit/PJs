@@ -16,6 +16,16 @@ NOTE: I have used all of these in various situations and feel good about their p
 
 <hr>
 
+<h2>Table of Contents</h2>
+
+* Create Element - "dcE"
+* Get Elements by Class Name - "dgCN"&emsp;*(Alias)*
+* Get First Element by Class Name - "dgCNz"&emsp;*(Alias)*
+* Get Element by ID - "dgI"&emsp;*(Alias)*
+* Deselect All - "pDA"
+* Get Next Sibling - "pGNS"
+
+
 <h2>Create Element  (dcE.js)</h2>
 
 "dcE" stands for "document.createElement".
