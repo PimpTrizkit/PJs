@@ -1,1 +1,1 @@
-const dgCN =(o)=>document.getElementsByClassName(o);
+const dgCN=(o)=>document.getElementsByClassName(o);
