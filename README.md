@@ -4,6 +4,7 @@ Pimped Javascript - Just a library of my javascript functions. They are generall
 Note: None of these are meant to be linked in separately. They are to be copied and pasted into the `head` of your HTML on a "as needed" basis.
 
 <hr>
+
 Create Element  (dcE.js)
 ------------------------
 "dcE" stands for "document.createElement".
