@@ -217,7 +217,9 @@ const pARCE=(a,e,c,o)=>{if(a){e.addEventListener("click",c,(o?{once:true}:false)
 <h3>Usage:</h3>
 
 ```JavaScript
-pARCE(addRemove,element,callback,once);
+pARCE(true,myElementA,myCallbackFuncA,true); // Add click event, single use (automatic removal).
+pARCE(true,myElementB,myCallbackFuncB,false); // Add click event, multi use.
+pARCE(false,myElementB,myCallbackFuncB); // Manual remove click event
 ```
 
 <h3>Return:</h3>
@@ -259,11 +261,15 @@ const pARE=(a,e,t,c,o)=>{if(a)e.addEventListener(t,c,(o?{once:true}:false));else
 <h3>Usage:</h3>
 
 ```JavaScript
-pARE(true,myElement,"mousemove",myCallbackFunc,false);
+pARE(true,myElementA,"mousedown",myCallbackFuncA,true); // Add event, single use (automatic removal).
+pARE(true,myElementB,"mousemove",myCallbackFuncB,false); // Add event, multi use.
+pARE(false,myElementB,"mousemove",myCallbackFuncB,false); // Manual remove event
 ```
 &emsp;...Therefore...
 ```JavaScript
-pARE(true,myElement,"click",myCallbackFunc,true);
+pARE(true,myElement,"click",myCallbackFunc,true);  //  OR
+pARE(true,myElement,"click",myCallbackFunc,false);  // AND
+pARE(false,myElement,"click",myCallbackFunc,false);
 ```
 ...could be used to simulate `pARCE` usage but without clearing the highlight from an accidental double click.
 
