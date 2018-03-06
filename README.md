@@ -296,7 +296,7 @@ const pGS=(n,p)=>{let x=p?n.previousSibling:n.nextSibling;while(x&&x.nodeType!=1
 
 <h3>Return:</h3>
 
-A HTML Element that is a sibling of the specified element. This returned element is not necessairly the direct sibling of the element specified. This function will skip nodes without type equal to `1`, and return the nearest relevant node. Or `false` if no relevant nodes were found.
+A HTML Element that is a sibling of the specified element. This returned element is not necessairly the direct sibling of the element specified. This function will skip nodes without type equal to `1`, and return the nearest relevant node. Or `false` if no relevant node was found.
 
 
 <h3>Params - pGS(n,p):</h3>
