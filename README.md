@@ -202,7 +202,9 @@ A HTML Element, from inside `document`, that has `id` equal to the parameter spe
 
 *Dependency: `pDA`*
 
-This will add or remove a `click` callback associated with an element. It also allows for use of the optional `once` attribute that will automatically remove the event listener from the element once it fires the first time, therefore, it only fires "once". `pARCE` will also use `pDA` to cancel out any highlighting caused from accidental double clicking by adding it as a `dblclick` listener. Remove `e.addEventListener("dblclick",pDA);` to disable this feature.
+This will add or remove a `click` callback associated with an element. It also allows for use of the optional `once` attribute that will automatically remove the event listener from the element once it fires the first time, therefore, it only fires "once".
+
+`pARCE` will also use `pDA` to cancel out any highlighting caused from accidental double clicking by adding it as a `dblclick` listener. Remove `e.addEventListener("dblclick",pDA);` to disable this feature.
 
 
 <h3>Code:</h3>
