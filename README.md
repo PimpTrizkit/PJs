@@ -219,6 +219,7 @@ const pARCE=(a,e,c,o)=>{if(a){e.addEventListener("click",c,(o?{once:true}:false)
 ```JavaScript
 pARCE(true,myElementA,myCallbackFuncA,true); // Add click event, single use (automatic removal).
 pARCE(true,myElementB,myCallbackFuncB,false); // Add click event, multi use.
+pARCE(true,myElementB,myCallbackFuncB); // Add click event, multi use, default setting.
 pARCE(false,myElementB,myCallbackFuncB); // Manual remove click event
 ```
 
@@ -263,7 +264,8 @@ const pARE=(a,e,t,c,o)=>{if(a)e.addEventListener(t,c,(o?{once:true}:false));else
 ```JavaScript
 pARE(true,myElementA,"mousedown",myCallbackFuncA,true); // Add event, single use (automatic removal).
 pARE(true,myElementB,"mousemove",myCallbackFuncB,false); // Add event, multi use.
-pARE(false,myElementB,"mousemove",myCallbackFuncB,false); // Manual remove event
+pARE(true,myElementB,"mousemove",myCallbackFuncB); // Add event, multi use, default setting.
+pARE(false,myElementB,"mousemove",myCallbackFuncB); // Manual remove event
 ```
 &emsp;...Therefore...
 ```JavaScript
