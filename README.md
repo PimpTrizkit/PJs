@@ -179,5 +179,5 @@ Nothing, get over it.
 * Not required when used as a stand-alone function (non-event listener).
 
 **p** = < stopPropagation >    *Optional*
-* Required < true equivalent > value to stop event propagation. Suggested to use `true` or `false`.
+* Required < true equivalent > value to stop event propagation. Suggested to use `true` (or `false`).
 * When used as a direct event listener, `pDeselectAll` will default to contining propagation.
