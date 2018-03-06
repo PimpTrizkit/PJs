@@ -94,6 +94,8 @@ A HTML Element of the type specified and with any attributes, appended children,
 
 "dgCN" alias for "document.getElementsByClassName".
 
+This will search inside `document` for elements that have a `className` equal to the string specified. And then return a HTML Collection of those elements.
+
 
 <h3>Code:</h3>
 
@@ -124,6 +126,8 @@ A HTML Collection of HTML Elements, from inside `document`,  that have `classNam
 *This is just an alias function to shorten other JS code.*
 
 "dgCNz" stands for "document.getElementsByClassName (zero index)".
+
+This will search inside `document` for the first element that has a `className` equal to the string specified. And then return that element or `undefined`.
 
 
 <h3>Code:</h3>
