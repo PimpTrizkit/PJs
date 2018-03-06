@@ -201,7 +201,7 @@ This will get the next sibling in the DOM while skipping text nodes. Or rather, 
 
 <h3>Return:</h3>
 
-a HTML Element that is a sibling of the specified element. This element is not necessairly the direct sibling. This function will skip nodes without type equal to `1`, and return the next relevant node. Or `false` if no relevant nodes were found.
+a HTML Element that is a sibling of the specified element. This returned element is not necessairly the direct sibling. This function will skip nodes without type equal to `1`, and return the next relevant node. Or `false` if no relevant nodes were found.
 
 
 <h3>Params - pGetNextSibling(n):</h3>
