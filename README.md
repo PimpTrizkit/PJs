@@ -116,6 +116,35 @@ The first HTML Element, from inside `document`, that has `className` equal to th
 <h3>Params - dgCN(c):</h3>
 
 **c** = < classNameString >
-* A string to search in `document` for the first occurance of an element with the same className.
+* A string to search in `document` for the first occurance of an element with the same `className`.
 * This function uses `document.getElementsByClassName()`, and is just an alias.
 
+<hr>
+
+<h2>Get Element by ID (dgI.js)</h2>
+
+*This is just an alias function to shorten other JS code. Just reinventing the exact same wheel here.*
+
+"dgI" stands for "document.getElementByID".
+
+
+<h3>Code:</h3>
+
+`const dgI =(i)=>document.getElementById(i);`
+
+
+<h3>Usage:</h3>
+
+`dgI("ID")`
+
+
+<h3>Return:</h3>
+
+A HTML Element, from inside `document`, that has `id` equal to the parameter specified. NOTE: If no such element exists, `null` will be returned.
+
+
+<h3>Params - dgI(i):</h3>
+
+**i** = < IDString >
+* A string to search in `document` for the first occurance of an element with the same `id`.
+* This function uses `document.getElementByID()`, and is just an alias.
