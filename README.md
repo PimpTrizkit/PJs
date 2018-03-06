@@ -31,7 +31,7 @@ NOTE: I have used all of these functions in various situations and feel good abo
 * [Deselect All - "pDA"](#deselect-all--pdajs)
 * [Get Sibling - "pGS"](#get-sibling--pgsjs)
 * [Log - "pL"](#log--pljs)
-* [Trim - "pT" (Fastest Trim in the JS world)](#trim--ptjs---fastest-trim-in-the-js-world)
+* [Trim - "pT" (The best Trim I have found)](#trim--ptjs---fastest-trim-in-the-js-world)
 <br><br>
 <hr>
 
@@ -398,9 +398,11 @@ Nothing, unless your looking at the console.
 <br><br>
 <hr>
 
-<h2>Trim  (pT.js) - Fastest trim in the JS world</h2>
+<h2>Trim  (pT.js) - The Best Trim I Have Found</h2>
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[Back to Table of Contents](#table-of-contents)
+
+&emsp;&emsp;&emsp;-*"Now thats some good trim."*
 
 This will trim the white space from around a string of text. It's fastest version I've ever tested. Credit to someone, somewhere, I didn't write it originally. And I can't find who did, kudos to you, John Doe. I just rewrote/refactored it. Just try to beat it's speed on a variety of string sizes, and amounts/types of white space. And I will replace this if you succeed.
 <br><br><h3>Code:</h3>
