@@ -279,22 +279,24 @@ pARE(false,myElement,"click",myCallbackFunc,false);
 
 Nothing, get used to it. But your thing works now.
 
-<h3>Params - pARCE(a,e,c,o):</h3>
+<h3>Params - pARE(a,e,t,c,o):</h3>
 
 **a** = < Add/Remove Boolean >&emsp;* *REQUIRED*
-* A true or false equivalent boolean used to add or remove the click event, respectively. Suggested to use `true` or `false`.
+* A true or false equivalent boolean used to add or remove the event, respectively. Suggested to use `true` or `false`.
 
 **e** = < HTML Element >&emsp;* *REQUIRED*
-* The element to which to add or remove the `click` event.
-* If `a` above is set to `true` then `pDA` will also be added as an event listener for `dblclick` (double clicks) on this element.
+* The element to which to add or remove the event.
+
+**t** = < EventType String >&emsp;* *REQUIRED*
+* A String that represents the event type to which is registered the callback listener.
 
 **c** = < Callback Function >&emsp;* *REQUIRED*
-* The callback function to which to attach to or remove from the `click` event on the specifed element (`e` above).
+* The callback function to which to attach to or remove from the event on the specifed element (`e` above).
 
 **o** = < Once/Multi Boolean >&emsp;*Optional*
 * A true or false equivalent boolean used to set the `once` attribute. Suggested to use `true` or `false`.
 * The `once` attribute will allow the event listener to run only once, then the browswer will remove it from the element automatically.
-* If omitted, `pARCE` will default to a multi-use event listener.
+* If omitted, `pARE` will default to a multi-use event listener.
 * Skipped if `a` is `false`.
 <br><br>
 <hr>
