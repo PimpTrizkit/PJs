@@ -181,3 +181,32 @@ Nothing, get over it.
 **p** = < stopPropagation >    *Optional*
 * Required < true equivalent > value to stop event propagation. Suggested to use `true` (or `false`).
 * When used as a direct event listener, `pDeselectAll` will default to contining propagation.
+
+<hr>
+
+<h2>Get Next Sibling (obGetNextSibling.js)</h2>
+
+This will get the next sibling in the DOM while skipping text nodes. Or rather, it will skip all nodes that are not of `nodeType` == `1`.
+
+
+<h3>Code:</h3>
+
+`const pGetNextSibling=(n)=>{let x=n.nextSibling;while(x&&x.nodeType!=1)x=x.nextSibling;if(x&&x.nodeType==1)return x;else return false;}`
+
+
+<h3>Usage:</h3>
+
+`pGetNextSibling(element)`
+
+
+<h3>Return:</h3>
+
+a HTML Element that is a sibling of the specified element. This element is not necessairly the direct sibling. This function will skip nodes without type equal to `1`, and return the next relevant node. Or `false` if no relevant nodes were found.
+
+
+<h3>Params - pGetNextSibling(n):</h3>
+
+**n** = < node/element >   * *REQUIRED*
+* The Node or Element from which to start searching.
+* `nodeType` not equal to `1` are skipped, until one is found, and that one is returned.
+
