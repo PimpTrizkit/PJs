@@ -295,7 +295,7 @@ Nothing, get used to it. But your thing works now.
 
 **o** = < Once/Multi Boolean >&emsp;*Optional*
 * A true or false equivalent boolean used to set the `once` attribute. Suggested to use `true` or `false`.
-* The `once` attribute will allow the event listener to run only once, then the browswer will remove it from the element automatically.
+* The `once` attribute will allow the event listener to run only once, then the browser will remove it from the element automatically.
 * If omitted, `pARE` will default to a multi-use event listener.
 * Skipped if `a` is `false`.
 <br><br>
