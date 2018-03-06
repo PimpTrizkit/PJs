@@ -1,5 +1,5 @@
 # PJs
-Pimped Javascript - Just a library of my javascript functions. They are generally very tight, fast, small, versatile, and copy/paste - able. Readability will be sacrificed. Because they are optimized for usage right out-of-the-box.
+Pimped Javascript - Just a library of my javascript functions. They are generally built for speed, size, versatility, and portability (copy and paste-able). Readability will be sacrificed. Because they are optimized for usage right out-of-the-box.
 
 Note: None of these are meant to be linked in separately. They are to be copied and pasted into the `head` of your HTML on a "as desired" basis.
 
