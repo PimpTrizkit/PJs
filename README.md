@@ -206,7 +206,7 @@ This will add or remove a `click` callback associated with an element. It also a
 
 <h3>Return:</h3>
 
-Nothing, get used to it. But your thing works nows.
+Nothing, get used to it. But your thing works now.
 
 
 <h3>Params - pARCE(a,e,c,o):</h3>
