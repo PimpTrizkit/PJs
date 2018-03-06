@@ -8,6 +8,7 @@ As you can see, a number of the functions are simple. For those, the real work w
 * *Documentation*
 * *Formalizing standards*
 * *Some of these are old and might have already been added into the new javascript standard (excluding aliases).*
+* *Debuging/Testing/refining*
 
 Note: None of these functions below are meant to be linked in separately. They are to be copied and pasted into the `head` of your HTML on a "as desired" basis.
 
