@@ -14,6 +14,7 @@ NOTE: None of these functions (files) are meant to be linked in separately. They
 
 NOTE: I have used all of these in various situations and feel good about their performance. But, I have not fully added all practical features yet, nor tested in all relevant situations.  Please feel free to chime in.
 
+
 <hr>
 
 <h2>Table of Contents</h2>
@@ -25,11 +26,14 @@ NOTE: I have used all of these in various situations and feel good about their p
 * [Deselect All - "pDA"](#deselect-all-pdajs)
 * [Get Next Sibling - "pGNS"](#get-next-sibling-pgnsjs)
 
+
 <hr>
 
 <h2>Create Element  (dcE.js)</h2>
 
-"dcE" stands for "document.createElement".
+"dcE" short for "document.createElement".
+
+This will create and return a HTML elemenent with specified attributes, children, and event listeners.
 
 
 <h3>Code:</h3>
@@ -80,13 +84,14 @@ A HTML Element of the type specified and with any attributes, appended children,
 * This uses the `element.addEventListener("type", callback)` method of setting an Event Listener.
 * The < false equivalent > is suggested to use `false` and it will skip this parameter, same as not including this parameter, or making it optional.
 
+
 <hr>
 
 <h2>Get Elements by Class Name  (dgCN.js)</h2>
 
 *This is just an alias function to shorten other JS code.*
 
-"dgCN" stands for "document.getElementsByClassName".
+"dgCN" alias for "document.getElementsByClassName".
 
 
 <h3>Code:</h3>
@@ -109,6 +114,7 @@ A HTML Collection of HTML Elements, from inside `document`,  that have `classNam
 **c** = < classNameString >  * *REQUIRED*
 * A string to search in `document` for elements of the same className.
 * This function uses `document.getElementsByClassName()`, and is just an alias.
+
 
 <hr>
 
@@ -140,6 +146,7 @@ The first HTML Element, from inside `document`, that has `className` equal to th
 * A string to search in `document` for the first occurance of an element with the same `className`.
 * This function uses `document.getElementsByClassName()`, and is just an alias.
 
+
 <hr>
 
 <h2>Get Element by ID (dgI.js)</h2>
@@ -169,6 +176,7 @@ A HTML Element, from inside `document`, that has `id` equal to the parameter spe
 **i** = < IDString >  * *REQUIRED*
 * A string to search in `document` for the first occurance of an element with the same `id`.
 * This function uses `document.getElementByID()`, and is just an alias.
+
 
 <hr>
 
@@ -202,6 +210,7 @@ Nothing, get over it.
 **p** = < stopPropagation >    *Optional*
 * Required < true equivalent > value to stop event propagation. Suggested to use `true` (or `false`).
 * When used as a direct event listener, `pDeselectAll` will default to contining propagation.
+
 
 <hr>
 
