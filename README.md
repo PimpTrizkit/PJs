@@ -282,8 +282,8 @@ pARE(false,myElementB,"mousemove",myCallbackFuncB); // Manual remove event
 &emsp;...Therefore...
 ```JavaScript
 pARE(true,myElement,"click",myCallbackFunc,true);  //  OR
-pARE(true,myElement,"click",myCallbackFunc,false);  // AND
-pARE(false,myElement,"click",myCallbackFunc,false);
+pARE(true,myElement,"click",myCallbackFunc);  // AND
+pARE(false,myElement,"click",myCallbackFunc);
 ```
 ...could be used to simulate `pARCE` usage but without clearing the highlight from an accidental double click.
 
