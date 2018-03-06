@@ -406,7 +406,7 @@ Nothing, unless your looking at the console.
 
 &emsp;&emsp;&emsp;&emsp;*"Now thats some good trim." - PT*
 
-This will trim the white space from around a string of text. It's fastest version I've ever tested. Credit to someone, somewhere, I didn't write it originally. And I can't find who did, kudos to you, John Doe. I just rewrote/refactored it. Just try to beat it's speed on a variety of string sizes, and amounts/types of white space. And I will replace this if you succeed.
+This will trim the white space from around a string of text. It's fastest version I've ever tested. Credit to someone, somewhere, I didn't write it originally. And I can't find who did, kudos to you, John Doe. I just rewrote/refactored it. Just try to beat it's speed on a variety of string sizes, and amounts/types of white space. And I will replace this method if you succeed and give you all the credit.
 <br><br><h3>Code:</h3>
 
 ```JavaScript
