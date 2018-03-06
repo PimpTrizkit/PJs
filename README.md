@@ -24,7 +24,7 @@ NOTE: I have used all of these functions in various situations and feel good abo
 * [Get First Element by Class Name - "dgCNz"&emsp;*(Alias)*](#get-first-element-by-class-name--dgcnzjs)
 * [Get Element by ID - "dgI"&emsp;*(Alias)*](#get-element-by-id-dgijs)
 * [Deselect All - "pDA"](#deselect-all-pdajs)
-* [Get Next Sibling - "pGNS"](#get-next-sibling-pgnsjs)
+* [Get Sibling - "pGS"](#get-sibling-pgsjs)
 
 
 <hr>
@@ -54,7 +54,7 @@ A HTML Element of the type specified and with any attributes, appended children,
 
 <h3>Params - dcE(t,a,b,c,d):</h3>
 
-**t**  = < element type >  * *REQUIRED*
+**t**  = < element type >&emsp;* *REQUIRED*
 * A string, such as: `"div"`, `"a"`, `"ul"`, `"span"`, etc..
 * This uses `document.createElement()`. Therefore, this string must be compatible.
 * This is the only required parameter. All the rest are pseudo-optional.
@@ -111,7 +111,7 @@ A HTML Collection of HTML Elements, from inside `document`,  that have `classNam
 
 <h3>Params - dgCN(c):</h3>
 
-**c** = < classNameString >  * *REQUIRED*
+**c** = < classNameString >&emsp;* *REQUIRED*
 * A string to search in `document` for elements of the same className.
 * This function uses `document.getElementsByClassName()`, and is just an alias.
 
@@ -142,14 +142,14 @@ The first HTML Element, from inside `document`, that has `className` equal to th
 
 <h3>Params - dgCN(c):</h3>
 
-**c** = < classNameString >  * *REQUIRED*
+**c** = < classNameString >&emsp;* *REQUIRED*
 * A string to search in `document` for the first occurance of an element with the same `className`.
 * This function uses `document.getElementsByClassName()`, and is just an alias.
 
 
 <hr>
 
-<h2>Get Element by ID (dgI.js)</h2>
+<h2>Get Element by ID  (dgI.js)</h2>
 
 *This is just an alias function to shorten other JS code. Just reinventing the exact same wheel here.*
 
@@ -173,14 +173,14 @@ A HTML Element, from inside `document`, that has `id` equal to the parameter spe
 
 <h3>Params - dgI(i):</h3>
 
-**i** = < IDString >  * *REQUIRED*
+**i** = < IDString >&emsp;* *REQUIRED*
 * A string to search in `document` for the first occurance of an element with the same `id`.
 * This function uses `document.getElementByID()`, and is just an alias.
 
 
 <hr>
 
-<h2>Deselect All (pDA.js)</h2>
+<h2>Deselect All  (pDA.js)</h2>
 
 This will de-select all highlighted text on the page.
 
@@ -203,40 +203,43 @@ Nothing, get over it.
 
 <h3>Params - pDA(e,p):</h3>
 
-**e** = < event >   *Optional*
+**e** = < event >&emsp;*Optional*
 * Only required to stop event propagation.
 * Not required when used as a stand-alone function (non-event listener).
 
-**p** = < stopPropagation >    *Optional*
+**p** = < stopPropagation >&emsp;*Optional*
 * Required < true equivalent > value to stop event propagation. Suggested to use `true` (or `false`).
 * When used as a direct event listener, `pDeselectAll` will default to contining propagation.
 
 
 <hr>
 
-<h2>Get Next Sibling (pGNS.js)</h2>
+<h2>Get Sibling  (pGS.js)</h2>
 
-This will get the next sibling in the container while skipping text nodes. Or rather, it will skip all nodes that are not of `nodeType` == `1`.
+This will get the next (or previous) sibling in the container while skipping text nodes. Or rather, it will skip all nodes that are not of `nodeType` == `1`.
 
 
 <h3>Code:</h3>
 
-`const pGNS=(n)=>{let x=n.nextSibling;while(x&&x.nodeType!=1)x=x.nextSibling;if(x&&x.nodeType==1)return x;else return false;}`
+`const pGS=(n,p)=>{let x=p?n.previousSibling:n.nextSibling;while(x&&x.nodeType!=1)x=p?x.previousSibling:x.nextSibling;if(x&&x.nodeType==1)return x;else return false;}`
 
 
 <h3>Usage:</h3>
 
-`pGNS(element)`
+`pGNS(element,previous)`
 
 
 <h3>Return:</h3>
 
-a HTML Element that is a sibling of the specified element. This returned element is not necessairly the direct sibling of the element specified. This function will skip nodes without type equal to `1`, and return the next relevant node. Or `false` if no relevant nodes were found.
+a HTML Element that is a sibling of the specified element. This returned element is not necessairly the direct sibling of the element specified. This function will skip nodes without type equal to `1`, and return the nearest relevant node. Or `false` if no relevant nodes were found.
 
 
-<h3>Params - pGNS(n):</h3>
+<h3>Params - pGS(n,p):</h3>
 
-**n** = < node/element >   * *REQUIRED*
+**n** = < node/element >&emsp;* *REQUIRED*
 * The Node or Element from which to start searching.
 * `nodeType` not equal to `1` are skipped, until one is found, and that one is returned.
 
+**p** = < true/false equivalent >&emsp;*Optional*
+* The direction to search. `true` will search previous siblings. `false` will search next siblings.
+* If omitted, defaults to searching next siblings.
