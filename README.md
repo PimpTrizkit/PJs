@@ -1,6 +1,8 @@
 # PJs
 Pimped Javascript - Just a library of my javascript functions. They are generally very tight and fast and versatile and copy/paste - able. Readability might be sacrificed.
 
+Note: None of these are meant to be linked in separately. They are to be copied and pasted into the `head` of your HTML on a "as needed" basis.
+
 Create Element  (dcE.js)
 ------------------------
 "dcE" stands for "document.createElement".
@@ -43,3 +45,23 @@ Create Element  (dcE.js)
 * The 2D array example is: `[["click", myClickFunc], ["mouseover", (e)=>{e.target.style.color="red";}]]`. Note: the first element must be a quoted ("") string. The second should be a function reference, as in, no `()`.  And as an example, a in-line anonymous arrow function was used as a second item here.
 * This uses the `element.addEventListener("type", callback)` method of setting an Event Listener.
 * The < false equivalent > is suggested to use `false` and it will skip this parameter, same as not including this parameter.
+
+
+Get Element by Class Name  (dgCN.js)
+------------------------
+*This is just an alias function to shorten other JS code.
+
+"dgCN" stands for "document.getElementsByClassName".
+
+
+**Usage:**
+
+`dgCN("className")`
+
+
+**Params - dgCN(c):**
+
+**c** = "< classNameString >"
+* A string to search the DOM for elements of the same className.
+* This function uses `document.getElementsByClassName()`, and is just an alias.
+
