@@ -42,7 +42,7 @@ This will create and return a HTML elemenent with specified attributes, children
 
 <h3>Code:</h3>
 
-```
+```JavaScript
 const dcE=(t,a,b,c,d)=>{let l=a?a.length?a.length:0:0,k=b?b.length?b.length:0:0,y=c?c.length?c.length:0:0,p=d?d.length?d.length:0:0,e=document.createElement(t);while(l--)e.setAttribute(a[l][0],a[l][1]);while(k--)e[b[k][0]]=b[k][1];while(y--)e.appendChild(c[y]);while(p--)e.addEventListener(d[p][0],d[p][1]);return e;}
 ```
 
@@ -104,7 +104,7 @@ This will search inside `document` for elements that have a `className` equal to
 
 <h3>Code:</h3>
 
-```
+```JavaScript
 const dgCN=(c)=>document.getElementsByClassName(c);
 ```
 
@@ -139,7 +139,7 @@ This will search inside `document` for the first element that has a `className` 
 
 <h3>Code:</h3>
 
-```
+```JavaScript
 const dgCNz=(c)=>document.getElementsByClassName(c)[0];
 ```
 
@@ -174,7 +174,7 @@ Searches inside `document` for a HTML Element with `id` equal to the provided st
 
 <h3>Code:</h3>
 
-```
+```JavaScript
 const dgI=(i)=>document.getElementById(i);
 ```
 
@@ -209,7 +209,7 @@ This will add or remove a `click` callback associated with an element. It also a
 
 <h3>Code:</h3>
 
-```
+```JavaScript
 const pARCE=(a,e,c,o)=>{if(a){e.addEventListener("click",c,(o?{once:true}:false));e.addEventListener("dblclick",pDA);}else e.removeEventListener("click",c);}
 ```
 
@@ -252,7 +252,7 @@ This will de-select all highlighted text on the page.
 
 <h3>Code:</h3>
 
-```
+```JavaScript
 const pDA=(e,p)=>{if(document.selection)document.selection.empty();else if(window.getSelection)window.getSelection().removeAllRanges();if(p&&e)e.stopPropagation();}
 ```
 * NOTE: The default is to NOT stop propagation of the event.
@@ -288,7 +288,7 @@ This will get the next (or previous) sibling in the container while skipping tex
 
 <h3>Code:</h3>
 
-```
+```JavaScript
 const pGS=(n,p)=>{let x=p?n.previousSibling:n.nextSibling;while(x&&x.nodeType!=1)x=p?x.previousSibling:x.nextSibling;if(x&&x.nodeType==1)return x;else return false;}
 ```
 
@@ -326,7 +326,7 @@ If the optional object is used, it will be on a separate line. Some browsers lik
 
 <h3>Code:</h3>
 
-```
+```JavaScript
 const pLS=[true,"appNameVersion",true];
 const pL=(m,o)=>{if(pLS[0]){console.log(pLS[1]+" "+(pLS[2]?"("+(new Date()).toLocaleString()+")":"")+" > "+m);if(o)console.log(o);}}
 ```
@@ -362,7 +362,7 @@ This will trim the white space from around a string of text. It's fastest versio
 
 <h3>Code:</h3>
 
-```
+```JavaScript
 const pT=(s)=>{var s=s.replace(/^\s\s*/,''),w=/\s/,i=s.length;while(w.test(s.charAt(--i)));return s.slice(0,i+1);}
 ```
 
