@@ -2,7 +2,7 @@
 <hr>
 <h1>PJs</h1>
 
-&emsp;-&emsp;*"This is what I write my JavaScript in."*
+&emsp;&emsp;&emsp;&emsp;*"This is what I write my JavaScript in." - PT*
 
 Pimped Javascript - Just a library of my javascript functions, or shims. They are generally built for speed, size, versatility, and portability (copy and paste-able). Readability will be sacrificed, because they are optimized for usage right out-of-the-box. Therefore, this documentation will have to make up for that.
 
@@ -402,7 +402,7 @@ Nothing, unless your looking at the console.
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[Back to Table of Contents](#table-of-contents)
 
-&emsp;&emsp;&emsp;-*"Now thats some good trim."*
+&emsp;&emsp;&emsp;&emsp;*"Now thats some good trim." - PT*
 
 This will trim the white space from around a string of text. It's fastest version I've ever tested. Credit to someone, somewhere, I didn't write it originally. And I can't find who did, kudos to you, John Doe. I just rewrote/refactored it. Just try to beat it's speed on a variety of string sizes, and amounts/types of white space. And I will replace this if you succeed.
 <br><br><h3>Code:</h3>
