@@ -316,7 +316,7 @@ A HTML Element that is a sibling of the specified element. This returned element
 
 *Dependency `pLS`*
 
-This will log to the console messages and objects. There is a global data array `pLS` (length `3`) that is added which stores your logging settings. Change your settings here. The first item of the array is a boolean to turn on or off the logging. The second item is the name of the app/script to display in the console, set to "" if undesired. And the last item in the array is a boolean to determine if a timestamp should be placed before the message (but after the app/script name).
+This will log to the console messages and objects. There is a global data array `pLS` (length `3`) that is added which stores your logging settings. Change your settings here. The first item of the array is a boolean to turn on or off the logging. The second item is the name of the app/script to display in the console, set to `""` if undesired. And the last item in the array is a boolean to determine if a timestamp should be placed before the message (but after the app/script name).
 
 If the optional object is used, it will be on a separate line. Some browsers like this better.
 
