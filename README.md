@@ -26,6 +26,7 @@ NOTE: I have used all of these functions in various situations and feel good abo
 * [Get First Element by Class Name - "dgCNz"&emsp;*(Alias)*](#get-first-element-by-class-name--dgcnzjs)
 * [Get Element by ID - "dgI"&emsp;*(Alias)*](#get-element-by-id--dgijs)
 * [Add/Remove Click Events - "pARCE"](#addremove-click-events--parcejs)
+* [Add/Remove any Event - "pARE"](#addremove-any-event--parejs)
 * [Deselect All - "pDA"](#deselect-all--pdajs)
 * [Get Sibling - "pGS"](#get-sibling--pgsjs)
 * [Log - "pL"](#log--pljs)
@@ -49,7 +50,9 @@ const dcE=(t,a,b,c,d)=>{let l=a?a.length?a.length:0:0,k=b?b.length?b.length:0:0,
 
 <h3>Usage:</h3>
 
-`dcE("elementType", [[key,value],[key,value],...], [[key,value],[key,value],...], [[HTMLElement],[HTMLElement],...], [["eventType", callback], ["eventType", callback],...]);`
+```JavaScript
+dcE("elementType", [[key,value],[key,value],...], [[key,value],[key,value],...], [[HTMLElement],[HTMLElement],...], [["eventType", callback], ["eventType", callback],...]);
+```
 * use `false` instead of an array to skip that parameter.
 
 
@@ -111,8 +114,9 @@ const dgCN=(c)=>document.getElementsByClassName(c);
 
 <h3>Usage:</h3>
 
-`dgCN("myClassName")`
-
+```JavaScript
+dgCN("myClassName");
+```
 
 <h3>Return:</h3>
 
@@ -146,7 +150,9 @@ const dgCNz=(c)=>document.getElementsByClassName(c)[0];
 
 <h3>Usage:</h3>
 
-`dgCNz("myClassName")`
+```JavaScript
+dgCNz("myClassName");
+```
 
 
 <h3>Return:</h3>
@@ -181,7 +187,9 @@ const dgI=(i)=>document.getElementById(i);
 
 <h3>Usage:</h3>
 
-`dgI("myID")`
+```JavaScript
+dgI("myID");
+```
 
 
 <h3>Return:</h3>
@@ -245,6 +253,56 @@ Nothing, get used to it. But your thing works now.
 
 <hr>
 
+<h2>Add/Remove any Event  (pARE.js)</h2>
+
+This will add or remove a callback associated with an event type and element. It also allows for use of the optional `once` attribute that will automatically remove the event listener from the element once it fires the first time, therefore, it only fires "once".
+
+
+<h3>Code:</h3>
+
+```JavaScript
+const pARE=(a,e,t,c,o)=>{if(a)e.addEventListener(t,c,(o?{once:true}:false));else e.removeEventListener(t,c);}
+```
+
+
+<h3>Usage:</h3>
+
+```JavaScript
+pARE(true,myElement,"mousemove",myCallbackFunc,false);
+```
+&emsp;...Therefore...
+```JavaScript
+pARE(true,myElement,"click",myCallbackFunc,true);
+```
+...will simulate `pARCE` usage but without clearing the highlight from an accidental double click.
+
+
+<h3>Return:</h3>
+
+Nothing, get used to it. But your thing works now.
+
+
+<h3>Params - pARCE(a,e,c,o):</h3>
+
+**a** = < Add/Remove Boolean >&emsp;* *REQUIRED*
+* A true or false equivalent boolean used to add or remove the click event, respectively. Suggested to use `true` or `false`.
+
+**e** = < HTML Element >&emsp;* *REQUIRED*
+* The element to which to add or remove the `click` event.
+* If `a` above is set to `true` then `pDA` will also be added as an event listener for `dblclick` (double clicks) on this element.
+
+**c** = < Callback Function >&emsp;* *REQUIRED*
+* The callback function to which to attach to or remove from the `click` event on the specifed element (`e` above).
+
+**o** = < Once/Multi Boolean >&emsp;*Optional*
+* A true or false equivalent boolean used to set the `once` attribute. Suggested to use `true` or `false`.
+* The `once` attribute will allow the event listener to run only once, then the browswer will remove it from the element automatically.
+* If omitted, `pARCE` will default to a multi-use event listener.
+* Skipped if `a` is `false`.
+
+
+<hr>
+
 <h2>Deselect All  (pDA.js)</h2>
 
 This will de-select all highlighted text on the page.
@@ -256,19 +314,16 @@ This will de-select all highlighted text on the page.
 const pDA=(e,p)=>{if(document.selection)document.selection.empty();else if(window.getSelection)window.getSelection().removeAllRanges();if(p&&e)e.stopPropagation();}
 ```
 * NOTE: The default is to NOT stop propagation of the event.
-
-
+<br><br>
 <h3>Usage:</h3>
 
-`pDA()`&emsp;OR&emsp;`element.addEventListener("mouseup",pDA);`&emsp;OR&emsp;`document.addEventListener("mousemove", (e)=>{if(e.buttons > 0) pDA(e,true);});`
-
-
-<h3>Return:</h3>
+```JavaScript
+pDA()`&emsp;OR&emsp;`element.addEventListener("mouseup",pDA);`&emsp;OR&emsp;`document.addEventListener("mousemove", (e)=>{if(e.buttons > 0) pDA(e,true);});
+```
+<br><br><h3>Return:</h3>
 
 Nothing, get over it.
-
-
-<h3>Params - pDA(e,p):</h3>
+<br><br><h3>Params - pDA(e,p):</h3>
 
 **e** = < event >&emsp;*Optional*
 * Only required to stop event propagation.
@@ -277,33 +332,27 @@ Nothing, get over it.
 **p** = < StopPropagation Boolean >&emsp;*Optional*
 * A true or false equivalent boolean used to stop event propagation, or not. Suggested to use `true` to stop propagation or `false` to continue propagation.
 * When used as a direct event listener, `pDeselectAll` will default to contining propagation.
-
-
-<hr>
+<br><br><hr>
 
 <h2>Get Sibling  (pGS.js)</h2>
 
 This will get the next (or previous) sibling in the container while skipping text nodes. Or rather, it will skip all nodes that are not of `nodeType` == `1`.
-
-
-<h3>Code:</h3>
+<br><br><h3>Code:</h3>
 
 ```JavaScript
 const pGS=(n,p)=>{let x=p?n.previousSibling:n.nextSibling;while(x&&x.nodeType!=1)x=p?x.previousSibling:x.nextSibling;if(x&&x.nodeType==1)return x;else return false;}
 ```
+<br><br><h3>Usage:</h3>
 
-
-<h3>Usage:</h3>
-
-`pGS(element,previous)`
-
-
-<h3>Return:</h3>
+```JavaScript
+let a = pGS(myElement,true); // Previous Sibling
+let b = pGS(yourElement,false); // Next Sibling
+let c = pGS(hisElement); // Next Sibling
+```
+<br><br><h3>Return:</h3>
 
 A HTML Element that is a sibling of the specified element. This returned element is not necessairly the direct sibling of the element specified. This function will skip nodes without type equal to `1`, and return the nearest relevant node. Or `false` if no relevant node was found.
-
-
-<h3>Params - pGS(n,p):</h3>
+<br><br><h3>Params - pGS(n,p):</h3>
 
 **n** = < node/element >&emsp;* *REQUIRED*
 * The Node or Element from which to start searching.
@@ -312,9 +361,7 @@ A HTML Element that is a sibling of the specified element. This returned element
 **p** = < NextPrevious Boolean >&emsp;*Optional*
 * A true or false equivalent boolean used to determine which direction to search. Suggested to use `true` to search previous siblings and `false` to search next siblings.
 * If omitted, `pGS` will default to searching next siblings.
-
-
-<hr>
+<br><br><hr>
 
 <h2>Log  (pL.js)</h2>
 
@@ -323,25 +370,21 @@ A HTML Element that is a sibling of the specified element. This returned element
 This will log to the console messages and objects. There is a global data array `pLS` (length `3`) that is added which stores your logging settings. Change your settings here. The first item of the array is a boolean to turn on or off the logging. The second item is the name of the app/script to display in the console, set to `""` if undesired. And the last item in the array is a boolean to determine if a timestamp should be placed before the message (but after the app/script name).
 
 If the optional object is used, it will be on a separate line. Some browsers like this better. And older browsers might not support pushing an object to the console very well, or at all.
-
-<h3>Code:</h3>
+<br><br><h3>Code:</h3>
 
 ```JavaScript
 const pLS=[true,"appNameVersion",true];
 const pL=(m,o)=>{if(pLS[0]){console.log(pLS[1]+" "+(pLS[2]?"("+(new Date()).toLocaleString()+")":"")+" > "+m);if(o)console.log(o);}}
 ```
+<br><br><h3>Usage:</h3>
 
-
-<h3>Usage:</h3>
-
-`pL("Hello FooBar World",foobar);`
-
-
-<h3>Return:</h3>
+```JavaScript
+pL("Hello FooBar World",foobar);
+```
+<br><br><h3>Return:</h3>
 
 Nothing, unless your looking at the console.
-
-<h3>Params - pL(m,o):</h3>
+<br><br><h3>Params - pL(m,o):</h3>
 
 *Keep in mind, the actual logging settings are set in `pLS` before runtime.*
 
@@ -351,32 +394,25 @@ Nothing, unless your looking at the console.
 **o** = < Object >&emsp;*Optional*
 * An optional object to display in the console. This will be displayed on a separate line which sometimes displays better in various browsers, but otherwise about the same in the rest.
 * Older browsers might not support pushing an object to the console very well; this helps clean them up. Older still... and they might not support it at all; they could crash in the console either way.
-
-
-<hr>
+<br><br><hr>
 
 <h2>Trim  (pT.js) - Fastest trim in the JS world</h2>
 
 This will trim the white space from around a string of text. It's fastest version I've ever tested. Credit to someone, somewhere, I didn't write it originally. And I can't find who did, kudos to you, John Doe. I just rewrote/refactored it. Just try to beat it's speed on a variety of string sizes, and amounts/types of white space. And I will replace this if you succeed.
-
-
-<h3>Code:</h3>
+<br><br><h3>Code:</h3>
 
 ```JavaScript
 const pT=(s)=>{var s=s.replace(/^\s\s*/,''),w=/\s/,i=s.length;while(w.test(s.charAt(--i)));return s.slice(0,i+1);}
 ```
+<br><br><h3>Usage:</h3>
 
-
-<h3>Usage:</h3>
-
-`pT(string)`
-
-
-<h3>Return:</h3>
+```JavaScript
+pT("   Where does white space *actually* come from?    ");
+```
+<br><br><h3>Return:</h3>
 
 A copy of the specified string but with white space removed from the beginning and end.
-
-<h3>Params - pT(s):</h3>
+<br><br><h3>Params - pT(s):</h3>
 
 **s** = < Trim String >&emsp;* *REQUIRED*
 * The string from which a copy is made and white space is removed from the front and back, and then the modified copy is returned.
