@@ -188,7 +188,7 @@ Nothing, get over it.
 
 <h2>Get Next Sibling (pGNS.js)</h2>
 
-This will get the next sibling in the DOM while skipping text nodes. Or rather, it will skip all nodes that are not of `nodeType` == `1`.
+This will get the next sibling in the container while skipping text nodes. Or rather, it will skip all nodes that are not of `nodeType` == `1`.
 
 
 <h3>Code:</h3>
