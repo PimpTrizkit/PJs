@@ -25,6 +25,7 @@ NOTE: I have used all of these in various situations and feel good about their p
 * Deselect All - "pDA"
 * Get Next Sibling - "pGNS"
 
+<hr>
 
 <h2>Create Element  (dcE.js)</h2>
 
