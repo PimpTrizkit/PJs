@@ -41,6 +41,8 @@ Also, this list is still incomplete.
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[Back to Table of Contents](#table-of-contents)
 
+&emsp;&emsp;&emsp;&emsp;*“Anything does not exist until it is created. You create it” ― Bangambiki Habyarimana, The Great Pearl of Wisdom*
+
 "dcE" is short for "document.createElement".
 
 This will create and return a HTML elemenent with specified attributes, children, and event listeners.
@@ -100,6 +102,8 @@ A HTML Element of the type specified and with any attributes, appended children,
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[Back to Table of Contents](#table-of-contents)
 
+&emsp;&emsp;&emsp;&emsp;*"You Gotta Have Class." - PT*
+
 *This is just an alias function to shorten other JS code.*
 
 "dgCN" alias for "document.getElementsByClassName".
@@ -133,6 +137,8 @@ A HTML Collection of HTML Elements, from inside `document`,  that have `classNam
 <h2>Get First Element by Class Name  (dgCNz.js)</h2>
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[Back to Table of Contents](#table-of-contents)
+
+&emsp;&emsp;&emsp;&emsp;*"I always roll first class... i think." - PT*
 
 *This is just an alias function to shorten other JS code.*
 
@@ -168,6 +174,8 @@ The first HTML Element, from inside `document`, that has `className` equal to th
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[Back to Table of Contents](#table-of-contents)
 
+&emsp;&emsp;&emsp;&emsp;*"21 or over." - PT*
+
 *This is just an alias function to shorten other JS code. I just reinvented the exact same wheel here.*
 
 "dgI" alias for "document.getElementByID".
@@ -201,6 +209,8 @@ A HTML Element, from inside `document`, that has `id` equal to the parameter spe
 <h2>Add/Remove Click Events  (pARCE.js)</h2>
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[Back to Table of Contents](#table-of-contents)
+
+&emsp;&emsp;&emsp;&emsp;*"You want in my clique?" - PT*
 
 *Dependency: `pDA` (disableable)*
 
@@ -250,6 +260,8 @@ Nothing, get used to it. But your thing works now.
 <h2>Add/Remove any Event  (pARE.js)</h2>
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[Back to Table of Contents](#table-of-contents)
+
+&emsp;&emsp;&emsp;&emsp;*"I love events!" - PT*
 
 This will add or remove a callback associated with an event type and element. It also allows for use of the optional `once` attribute that will automatically remove the event listener from the element once it fires the first time, therefore, it only fires "once".
 
@@ -305,6 +317,8 @@ Nothing, get used to it. But your thing works now.
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[Back to Table of Contents](#table-of-contents)
 
+&emsp;&emsp;&emsp;&emsp;*"[U Can't Touch This](https://www.youtube.com/watch?v=otCpCn0l4Wo)" - MC Hammer*
+
 This will de-select all highlighted text on the page.
 
 <h3>Code:</h3>
@@ -341,6 +355,8 @@ Nothing, get over it.
 <h2>Get Sibling  (pGS.js)</h2>
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[Back to Table of Contents](#table-of-contents)
+
+&emsp;&emsp;&emsp;&emsp;*"I think I can find your sister." - PT*
 
 This will get the next (or previous) sibling in the container while skipping text nodes. Or rather, it will skip all nodes that are not of `nodeType` == `1`.
 
