@@ -2,7 +2,7 @@
 
 Pimped Javascript - Just a library of my javascript functions. They are generally built for speed, size, versatility, and portability (copy and paste-able). Readability will be sacrificed. Because they are optimized for usage right out-of-the-box.
 
-As you can see, a number of the functions are simple. For those, the real work will be to help the documentation and in formalizing a standard. Speaking of which, they all could probably use some help on those issues (for instance: Should `pDeselectAll` be `pDA` to match the short-hand naming theme?).
+As you can see, a number of the functions are simple. For those, the real work will be to help the documentation and in formalizing a standard. Speaking of which, they all could probably use some help on those issues.
 
 Note: None of these are meant to be linked in separately. They are to be copied and pasted into the `head` of your HTML on a "as desired" basis.
 
@@ -153,20 +153,20 @@ A HTML Element, from inside `document`, that has `id` equal to the parameter spe
 
 <hr>
 
-<h2>Deselect All (pDeselectAll.js)</h2>
+<h2>Deselect All (pDA.js)</h2>
 
 This will de-select all highlighted text on the page.
 
 
 <h3>Code:</h3>
 
-`const pDeselectAll=(e,p)=>{if(document.selection)document.selection.empty();else if(window.getSelection)window.getSelection().removeAllRanges();if(p&&e)e.stopPropagation();}`
+`const pDA=(e,p)=>{if(document.selection)document.selection.empty();else if(window.getSelection)window.getSelection().removeAllRanges();if(p&&e)e.stopPropagation();}`
 * NOTE: The default is to NOT stop propagation of the event.
 
 
 <h3>Usage:</h3>
 
-`pDeselectAll()`&emsp;OR&emsp;`element.addEventListener("mouseup",pDeselectAll);`&emsp;OR&emsp;`document.addEventListener("mousemove", (e)=>{if(e.buttons > 0) pDeselectAll(e,true);});`
+`pDA()`&emsp;OR&emsp;`element.addEventListener("mouseup",pDA);`&emsp;OR&emsp;`document.addEventListener("mousemove", (e)=>{if(e.buttons > 0) pDA(e,true);});`
 
 
 <h3>Return:</h3>
@@ -174,7 +174,7 @@ This will de-select all highlighted text on the page.
 Nothing, get over it.
 
 
-<h3>Params - pDeselectAll(e,p):</h3>
+<h3>Params - pDA(e,p):</h3>
 
 **e** = < event >   *Optional*
 * Only required to stop event propagation.
@@ -186,19 +186,19 @@ Nothing, get over it.
 
 <hr>
 
-<h2>Get Next Sibling (pGetNextSibling.js)</h2>
+<h2>Get Next Sibling (pGNS.js)</h2>
 
 This will get the next sibling in the DOM while skipping text nodes. Or rather, it will skip all nodes that are not of `nodeType` == `1`.
 
 
 <h3>Code:</h3>
 
-`const pGetNextSibling=(n)=>{let x=n.nextSibling;while(x&&x.nodeType!=1)x=x.nextSibling;if(x&&x.nodeType==1)return x;else return false;}`
+`const pGNS=(n)=>{let x=n.nextSibling;while(x&&x.nodeType!=1)x=x.nextSibling;if(x&&x.nodeType==1)return x;else return false;}`
 
 
 <h3>Usage:</h3>
 
-`pGetNextSibling(element)`
+`pGNS(element)`
 
 
 <h3>Return:</h3>
@@ -206,7 +206,7 @@ This will get the next sibling in the DOM while skipping text nodes. Or rather, 
 a HTML Element that is a sibling of the specified element. This returned element is not necessairly the direct sibling of the element specified. This function will skip nodes without type equal to `1`, and return the next relevant node. Or `false` if no relevant nodes were found.
 
 
-<h3>Params - pGetNextSibling(n):</h3>
+<h3>Params - pGNS(n):</h3>
 
 **n** = < node/element >   * *REQUIRED*
 * The Node or Element from which to start searching.
