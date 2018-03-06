@@ -200,7 +200,7 @@ A HTML Element, from inside `document`, that has `id` equal to the parameter spe
 
 <h2>Add/Remove Click Events  (pARCE.js)</h2>
 
-*Dependency: `pDA`*
+*Dependency: `pDA` (disableable)*
 
 This will add or remove a `click` callback associated with an element. It also allows for use of the optional `once` attribute that will automatically remove the event listener from the element once it fires the first time, therefore, it only fires "once".
 
