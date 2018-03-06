@@ -26,8 +26,8 @@ NOTE: I have used all of these functions in various situations and feel good abo
 * [Add/Remove Click Events - "pARCE"](#addremove-click-events--parcejs)
 * [Deselect All - "pDA"](#deselect-all--pdajs)
 * [Get Sibling - "pGS"](#get-sibling--pgsjs)
-* [Log - "pLog"](#log--plogjs)
-* [Trim - "pTrim" (Fastest Trim in the JS world)](#trim--ptrimjs---fastest-trim-in-the-js-world)
+* [Log - "pL"](#log--pljs)
+* [Trim - "pT" (Fastest Trim in the JS world)](#trim--ptjs---fastest-trim-in-the-js-world)
 
 <hr>
 
@@ -312,7 +312,7 @@ A HTML Element that is a sibling of the specified element. This returned element
 
 <hr>
 
-<h2>Log  (pLog.js)</h2>
+<h2>Log  (pL.js)</h2>
 
 *Dependency `pLD`*
 
@@ -324,20 +324,20 @@ If the optional object is used, it will be on a separate line. Some browsers lik
 
 ```
 const pLD = [true,"appName",true];
-const pLog=(m,o)=>{if(pLD[0]){console.log(pLD[1]+" "+(pLD[2]?"("+(new Date()).toLocaleString()+")":"")+" > "+m);if(o)console.log(o);}}
+const pL=(m,o)=>{if(pLD[0]){console.log(pLD[1]+" "+(pLD[2]?"("+(new Date()).toLocaleString()+")":"")+" > "+m);if(o)console.log(o);}}
 ```
 
 
 <h3>Usage:</h3>
 
-`pLog("Hello FooBar World",foobar);`
+`pL("Hello FooBar World",foobar);`
 
 
 <h3>Return:</h3>
 
 Nothing, unless your looking at the console.
 
-<h3>Params - pLog(m,o):</h3>
+<h3>Params - pL(m,o):</h3>
 
 *Keep in mind, the rest of the logging parameters are set in `pLD`*
 
@@ -350,7 +350,7 @@ Nothing, unless your looking at the console.
 
 <hr>
 
-<h2>Trim  (pTrim.js) - Fastest trim in the JS world</h2>
+<h2>Trim  (pT.js) - Fastest trim in the JS world</h2>
 
 This will trim the white space from around a string of text. It's fastest version I've ever tested. Credit to someone, somewhere, I didn't write it originally. And I can't find who did, kudos to you, John Doe. I just rewrote/refactored it. Just try to beat it's speed on a variety of string sizes, and amounts/types of white space. And I will replace this if you succeed.
 
@@ -358,20 +358,20 @@ This will trim the white space from around a string of text. It's fastest versio
 <h3>Code:</h3>
 
 ```
-const pTrim=(s)=>{var s=s.replace(/^\s\s*/,''),w=/\s/,i=s.length;while(w.test(s.charAt(--i)));return s.slice(0,i+1);}
+const pT=(s)=>{var s=s.replace(/^\s\s*/,''),w=/\s/,i=s.length;while(w.test(s.charAt(--i)));return s.slice(0,i+1);}
 ```
 
 
 <h3>Usage:</h3>
 
-`pTrim(string)`
+`pT(string)`
 
 
 <h3>Return:</h3>
 
 A copy of the specified string but with white space removed from the beginning and end.
 
-<h3>Params - pTrim(s):</h3>
+<h3>Params - pT(s):</h3>
 
 **s** = < Trim String >&emsp;* *REQUIRED*
 * The string from which a copy is made and white space is removed from the front and back, and then the modified copy is returned.
