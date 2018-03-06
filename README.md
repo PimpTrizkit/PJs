@@ -22,6 +22,11 @@ Note: None of these are meant to be linked in separately. They are to be copied 
 * use `false` instead of an array to skip that parameter.
 
 
+<h3>Return:</h3>
+
+A HTML Element of the type specified and with any attributes, appended children, or event listeners added.
+
+
 <h3>Params - dcE(t,a,b,c,d):</h3>
 
 **t**  = < element type >
@@ -71,6 +76,11 @@ Note: None of these are meant to be linked in separately. They are to be copied 
 <h3>Usage:</h3>
 
 `dgCN("className")`
+
+
+<h3>Return:</h3>
+
+A HTML Collection of HTML Elements that have `className` equal to the parameter specified.
 
 
 <h3>Params - dgCN(c):</h3>
