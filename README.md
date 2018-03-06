@@ -10,6 +10,7 @@ Usage:
 * use `false` instead of an array to skip that parameter.
 
 Params - dcE(t,a,b,c,d):
+
 t  = <element type>
        * A string, such as: `"div"`, `"a"`, `"ul"`, `"span"`, etc..  
        * This uses `document.createElement()`. Therefore, this string must be compatible.
