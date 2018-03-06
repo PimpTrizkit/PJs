@@ -26,7 +26,7 @@ NOTE: I have used all of these functions in various situations and feel good abo
 * [Add/Remove Click Events - "pARCE"](#addremove-click-events--parcejs)
 * [Deselect All - "pDA"](#deselect-all--pdajs)
 * [Get Sibling - "pGS"](#get-sibling--pgsjs)
-* [Trim - "pTrim"](#trim--ptrimjs---fastest-trim-in-the-js-world)
+* [Trim - "pTrim" Fastest Trim in the JS world](#trim--ptrimjs---fastest-trim-in-the-js-world)
 
 <hr>
 
