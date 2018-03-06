@@ -1,6 +1,6 @@
 <h1>PJs</h1>
 
-Pimped Javascript - Just a library of my javascript functions. They are generally built for speed, size, versatility, and portability (copy and paste-able). Readability will be sacrificed, because they are optimized for usage right out-of-the-box. Documentation will have to make up for that.
+Pimped Javascript - Just a library of my javascript functions. They are generally built for speed, size, versatility, and portability (copy and paste-able). Readability will be sacrificed, because they are optimized for usage right out-of-the-box. Therefore, this documentation will have to make up for that.
 
 As you can see, a number of the functions are simple. For those, the real work will be to help the documentation and in formalizing a standard.
 
