@@ -23,6 +23,7 @@ NOTE: I have used all of these functions in various situations and feel good abo
 * [Get Elements by Class Name - "dgCN"&emsp;*(Alias)*](#get-elements-by-class-name--dgcnjs)
 * [Get First Element by Class Name - "dgCNz"&emsp;*(Alias)*](#get-first-element-by-class-name--dgcnzjs)
 * [Get Element by ID - "dgI"&emsp;*(Alias)*](#get-element-by-id--dgijs)
+* [Add/Remove Click Events - "pARCE"](#get-sibling--pgsjs)
 * [Deselect All - "pDA"](#deselect-all--pdajs)
 * [Get Sibling - "pGS"](#get-sibling--pgsjs)
 
@@ -111,7 +112,7 @@ A HTML Collection of HTML Elements, from inside `document`,  that have `classNam
 
 <h3>Params - dgCN(c):</h3>
 
-**c** = < classNameString >&emsp;* *REQUIRED*
+**c** = < ClassName String >&emsp;* *REQUIRED*
 * A string to search in `document` for elements of the same className.
 * This function uses `document.getElementsByClassName()`, and is just an alias.
 
@@ -142,7 +143,7 @@ The first HTML Element, from inside `document`, that has `className` equal to th
 
 <h3>Params - dgCN(c):</h3>
 
-**c** = < classNameString >&emsp;* *REQUIRED*
+**c** = < ClassName String >&emsp;* *REQUIRED*
 * A string to search in `document` for the first occurance of an element with the same `className`.
 * This function uses `document.getElementsByClassName()`, and is just an alias.
 
@@ -175,9 +176,51 @@ A HTML Element, from inside `document`, that has `id` equal to the parameter spe
 
 <h3>Params - dgI(i):</h3>
 
-**i** = < IDString >&emsp;* *REQUIRED*
+**i** = < ID String >&emsp;* *REQUIRED*
 * A string to search in `document` for the first occurance of an element with the same `id`.
 * This function uses `document.getElementByID()`, and is just an alias.
+
+
+<hr>
+
+<h2>Add/Remove Click Events  (pARCE.js)</h2>
+
+*Dependency: `pDA`*
+
+This will add or remove a `click` callback associated with an element. It also allows for use of the optional `once` attribute that will automatically remove the event listener from the element once it fires the first time, therefore, it only fires "once". `pARCE` will also use `pDA` to cancel out any highlighting caused from accidental double clicking by adding it as a `dblclick` listener.
+
+
+<h3>Code:</h3>
+
+`const pARCE=(a,e,c,o)=>{if(a){e.addEventListener("click",c,(o?{once:true}:false));e.addEventListener("dblclick",pDA);}else e.removeEventListener("click",c);}`
+
+
+<h3>Usage:</h3>
+
+`pARCE(addRemove,element,callback,once)`
+
+
+<h3>Return:</h3>
+
+Nothing, get used to it. But your thing works nows.
+
+
+<h3>Params - pARCE(a,e,c,o):</h3>
+
+**a** = < Add/Remove Boolean >&emsp;* *REQUIRED*
+* A true or false equivalent boolean used to add or remove the click event, respectively. Suggested to use `true` or `false`.
+
+**e** = < HTML Element >&emsp;* *REQUIRED*
+* The element to which to add or remove the `click` event.
+* If `a` above is set to `true` then `pDA` will also be added as an event listener for `dblclick` (double clicks) on this element.
+
+**c** = < Callback Function >&emsp;* *REQUIRED*
+* The callback function to which to attach to or remove from the `click` event on the specifed element (`e` above).
+
+**o** = < Once/Multi Boolean >&emsp;*Optional*
+* A true or false equivalent boolean used to set the `once` attribute. Suggested to use `true` or `false`.
+* The `once` attribute will allow the event listener to run only once, then the browswer will remove it from the element automatically.
+* If omitted, it defaults to a multi use event listener.
 
 
 <hr>
