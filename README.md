@@ -109,7 +109,7 @@ const dgCN=(c)=>document.getElementsByClassName(c);
 
 <h3>Usage:</h3>
 
-`dgCN("className")`
+`dgCN("myClassName")`
 
 
 <h3>Return:</h3>
@@ -144,7 +144,7 @@ const dgCNz=(c)=>document.getElementsByClassName(c)[0];
 
 <h3>Usage:</h3>
 
-`dgCNz("className")`
+`dgCNz("myClassName")`
 
 
 <h3>Return:</h3>
@@ -179,7 +179,7 @@ const dgI=(i)=>document.getElementById(i);
 
 <h3>Usage:</h3>
 
-`dgI("ID")`
+`dgI("myID")`
 
 
 <h3>Return:</h3>
