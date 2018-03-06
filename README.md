@@ -180,4 +180,4 @@ Nothing, get over it.
 
 **p** = < stopPropagation >    *Optional*
 * Required < true equivalent > value to stop event propagation. Suggested to use `true` or `false`.
-* When used as a stand-alone event listener, `pDeselectAll` will default to contining propagation.
+* When used as a direct event listener, `pDeselectAll` will default to contining propagation.
