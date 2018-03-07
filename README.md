@@ -22,4 +22,4 @@ NOTE: I have used all of these functions in various situations and feel good abo
 
 Also, this list is still incomplete.
 
-( Goto: [Table of Contents](https://github.com/PimpTrizkit/PJs/wiki/1.--Table-of-Contents) )
+( Goto: [Table of Contents](https://github.com/PimpTrizkit/PJs/wiki/01.--Table-of-Contents) )
