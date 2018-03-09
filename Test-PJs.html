@@ -31,26 +31,6 @@ const pDA=(e,p)=>{if(document.selection)document.selection.empty();else if(windo
 const pLS=[true,"PJs",false];
 const pL=(m,o)=>{if(pLS[0]){console.log(pLS[1]+" "+(pLS[2]?"("+(new Date()).toLocaleString()+")":"")+" > "+m);if(o)console.log(o);}}
 
-var   pUndefined;
-const pNull = null;
-
-const pNegative = -1;
-const pZero = 0;
-const pPositive = 1;
-
-const pString = "Woot";
-const pEmptyString = "";
-
-const pObject = {foo:"bar"};
-const pEmptyObject = {};
-
-const pArray = ["foo","bar"];
-const pEmptyArray = [];
-
-const pElement = dcE("div", [["id", "myDemoDiv"]]);
-
-const pCallback =(e)=>pL("eventType = " + e.type, e.target);
-
 let pOut = dcE("div",[["style","background:linear-gradient(135deg,#2989d8,#0e2288);color:white;font-family:monospace;text-shadow: 1px 1px 3px #000000;padding:4px;"], ["id", "outDiv"], ["class", "myClass classC"]]);
 let pTestDiv = dcE("div", [["style","background:green;color:white;"], ["title", "Hello FooBar!"], ["class", "myClass classB"]], [["innerHTML","<a href=''>A Link</a>"], ["id", "myDivA"]], [dcE("span",false,[["innerText","A Span Child"],["id","dgiSpan"],["className","dgcnClass"]]),dcE("input",[["type","checkbox"]],[["checked", true]])], [["mouseenter", (e)=>e.target.style.background='gray'],["mouseleave", (e)=>e.target.style.background='green']]);
 let pMain = dcE("div",[["class", "myClass classA"]],false,[pOut,pTestDiv]);
