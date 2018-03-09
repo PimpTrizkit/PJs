@@ -38,57 +38,57 @@ let pMain = dcE("div",[["class", "myClass classA"]],false,[pOut,pTestDiv]);
 const pTest=(v)=>{
 	document.body.append(pMain);
 	pOut.innerHTML += '<div style="text-align:center;">&emsp;---&emsp;A Test of the PJs functions&emsp;---</div><hr>' +
-					  '<span style="text-decoration:underline;">Get element by ID</span> - <span style="color:#FB0;">dgI(i)</span>:<br><br>' +
-					  '<span style="color:#b6b6b6;">// Setup:</span><br><br>'+
-					  '&emsp;<span style="border:2px solid black;cursor:pointer;padding:2px;background:green;">&lt;span&nbsp;id="myID"&nbsp;class="myClass"&gt;</span><br><br>' +
-					  '<span style="color:#b6b6b6;">// Tests:</span><br>'+
-					  '<span style="color:#FB0;">dgI(<span style="color:white;">"myID"</span>)<span style="color:white;">;</span></span>&nbsp;=> ' + dgI("dgiSpan") + '<br>' +
-					  '<span style="color:#FB0;">dgI(<span style="color:white;">"noID"</span>)<span style="color:white;">;</span></span>&nbsp;=> ' + dgI("noDiv") + '<br><hr>'+
-					  '<span style="text-decoration:underline;">Get elements by Class Name</span> - <span style="color:#FB0;">dgCN(c)</span>:<br><br>' +
-					  '<span style="color:#b6b6b6;">// The following tests use the span from dgI above:</span><br>' +
-					  '<span style="color:#FB0;">dgCN(<span style="color:white;">"myClass"</span>)<span style="color:white;">;</span></span> => ' + dgCN("dgcnClass") + ', Length: ' + dgCN("dgcnClass").length + '<br>' +
-					  '<span style="color:#FB0;">dgCN(<span style="color:white;">"noClass"</span>)<span style="color:white;">;</span></span> => ' + dgCN("noClass") + ', Length: ' + dgCN("noClass").length + '<br><hr>'+
-					  '<span style="text-decoration:underline;">Get element by Class Name (Zero index)</span> - <span style="color:#FB0;">dgCNz(c)</span>:<br><br>' +
-					  '<span style="color:#b6b6b6;">// The following tests use the span from dgI above:</span><br>' +
-					  '<span style="color:#FB0;">dgCNz(<span style="color:white;">"myClass"</span>)<span style="color:white;">;</span></span> => ' + dgCNz("dgcnClass") + '<br>' +
-					  '<span style="color:#FB0;">dgCNz(<span style="color:white;">"noClass"</span>)<span style="color:white;">;</span></span> => ' + dgCNz("noClass") + '<br><hr>'+
-					  '<span style="text-decoration:underline;">Add/Remove Click Event Listener</span> - <span style="color:#FB0;">pARCE(a,e,c,o)</span>:<br><br>' +
-					  '<span style="color:#b6b6b6;">// Setup:</span><br><br>'+
-					  '&emsp;<span id="arceSpan" style="border:2px solid black;cursor:pointer;padding:2px;background:green;">&lt;span&nbsp;id="arceSpan"&gt;&nbsp;</span><br><br>' +
-					  'let <span style="color:#00FF00">e</span> = dgI("arceSpan");&nbsp;&nbsp;<span style="color:#b6b6b6;">//&nbsp;The&nbsp;span&nbsp;above.</span><br>' +
-					  'let <span style="color:#00FF00">c</span> = (ev)=> ev.target.innerText += "<";<br><br>' +
-					  '<span style="color:#b6b6b6;">// Tests:</span><br>'+
-					  '<span style="color:#FB0;">pARCE ( <span style="color:white;">true</span>, <span style="color:#00FF00">e</span>, <span style="color:#00FF00">c</span>, <span style="color:white;">false</span> )<span style="color:white;">;</span></span> => <span id="myARCE_1" class="pButton">&nbsp;Add&nbsp;Multi-use&nbsp;Click&nbsp;Listener&nbsp;to&nbsp;arceSpan.&nbsp;</span><br><br>' +
-					  '<span style="color:#FB0;">pARCE ( <span style="color:white;">true</span>, <span style="color:#00FF00">e</span>, <span style="color:#00FF00">c</span>, <span style="color:white;">true</span> )<span style="color:white;">;</span></span>&nbsp;&nbsp;=> <span id="myARCE_2" class="pButton">&nbsp;Add&nbsp;Single-use&nbsp;Click&nbsp;Listener&nbsp;to&nbsp;arceSpan.&nbsp;</span><br><br>' +
-					  '<span style="color:#FB0;">pARCE ( <span style="color:white;">false</span>, <span style="color:#00FF00">e</span>, <span style="color:#00FF00">c</span> )<span style="color:white;">;</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> <span id="myARCE_3" class="pButton">&nbsp;Remove&nbsp;Click&nbsp;Listener&nbsp;from&nbsp;arceSpan.&nbsp;</span><br><hr>' +
-					  '<span style="text-decoration:underline;">Add/Remove Event Listener</span> - <span style="color:#FB0;">pARE(a,e,t,c,o)</span>:<br><br>' +
-					  '<span style="color:#b6b6b6;">// Setup:</span><br><br>'+
-					  '&emsp;<span id="areSpan" style="border:2px solid black;cursor:pointer;padding:2px;background:green;">&lt;span&nbsp;id="areSpan"&gt;&nbsp;</span><br><br>' +
-					  'let <span style="color:#00FF00">e</span> = dgI("areSpan");&nbsp;&nbsp;<span style="color:#b6b6b6;">//&nbsp;The&nbsp;span&nbsp;above.</span><br>' +
-					  'let <span style="color:#00FF00">c1</span> = (ev)=> ev.target.innerText += "<";<br>' +
-					  'let <span style="color:#00FF00">c2</span> = (ev)=> ev.target.innerText += ">";<br><br>' +
-					  '<span style="color:#b6b6b6;">// Tests:</span><br>'+
-					  '<span style="color:#FB0;">pARE ( <span style="color:white;">true</span>, <span style="color:#00FF00">e</span>, <span style="color:white;">"mouseenter"</span>, <span style="color:#00FF00">c1</span>, <span style="color:white;">false</span> )<span style="color:white;">;</span></span> => <span id="myARE_1" class="pButton">&nbsp;Add&nbsp;Multi-use&nbsp;Listener&nbsp;to&nbsp;areSpan.&nbsp;</span><br><br>' +
-					  '<span style="color:#FB0;">pARE ( <span style="color:white;">true</span>, <span style="color:#00FF00">e</span>, <span style="color:white;">"mouseleave"</span>, <span style="color:#00FF00">c2</span> )<span style="color:white;">;</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> <span id="myARE_2" class="pButton">&nbsp;Add&nbsp;Multi-use&nbsp;Listener&nbsp;to&nbsp;areSpan.&nbsp;</span><br><br>' +
-					  '<span style="color:#FB0;">pARE ( <span style="color:white;">true</span>, <span style="color:#00FF00">e</span>, <span style="color:white;">"mouseenter"</span>, <span style="color:#00FF00">c1</span>, <span style="color:white;">true</span> )<span style="color:white;">;</span></span>&nbsp;&nbsp;=> <span id="myARE_3" class="pButton">&nbsp;Add&nbsp;Single-use&nbsp;Listener&nbsp;to&nbsp;areSpan.&nbsp;</span><br><br>' +
-					  '<span style="color:#FB0;">pARE ( <span style="color:white;">false</span>, <span style="color:#00FF00">e</span>, <span style="color:white;">"mouseenter"</span>, <span style="color:#00FF00">c1</span> )<span style="color:white;">;</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> <span id="myARE_4" class="pButton">&nbsp;Remove&nbsp;Listener&nbsp;from&nbsp;areSpan.&nbsp;</span><br><hr>' +
-					  '<span style="text-decoration:underline;">Deselect All</span> - <span style="color:#FB0;">pDA(e,p)</span>:<br><br>' +
-					  '<span style="color:#b6b6b6;">// Setup:</span><br><br>'+
-					  '&nbsp;Output Div:<div id="daOut" style="margin:5px 0px 0px 10px;border:2px solid white;cursor:pointer;padding:2px;width:50%;background:black;color:orange;">&nbsp;>&nbsp;</div>' +
-					  '<div id="daDiv" style="margin:10px 0px 0px 10px;border:2px solid black;cursor:pointer;padding:4px;width:50%;background:green;">&nbsp;&lt;div&nbsp;id="daDiv"&gt;&nbsp;The&nbsp;Outer&nbsp;Div<div id="daInnerDiv" style="border:2px solid black;cursor:pointer;padding:2px;background:gray;">&nbsp;&lt;div&nbsp;id="daInnerDiv"&gt;&nbsp;The&nbsp;Inner&nbsp;Div</div></div><br>' +
-					  'let <span style="color:#00FF00">out</span> = dgI("daOut");&nbsp;&nbsp;<span style="color:#b6b6b6;">//&nbsp;The&nbsp;Output.</span><br>' +
-					  'let <span style="color:#00FF00">e</span> = dgI("daInnerDiv");&nbsp;&nbsp;<span style="color:#b6b6b6;">//&nbsp;The&nbsp;Inner&nbsp;div.</span><br>' +
-					  'let <span style="color:#00FF00">c</span> = (ev)=> <span style="color:#FB0;">pDA(<span style="color:white;">ev</span>,<span style="color:white;">true</span>)</span>;<br>'+
-					  '<span style="color:#b6b6b6;">/*&nbsp;&nbsp;The next line adds a double-click listener to The Outer Div.</span><br>'+
-					  '<span style="color:#b6b6b6;">&nbsp;&nbsp;&nbsp;&nbsp;This listener prints into the output box the id of the element that is</span><br>'+
-					  '<span style="color:#b6b6b6;">&nbsp;&nbsp;&nbsp;&nbsp;actually receiving the event.&nbsp;&nbsp;&nbsp;&nbsp;*/</span><br>'+
-					  'pARE(true,dgI("daDiv"),"dblclick",(ev)=> <span style="color:#00FF00">out</span>.innerText += " > " + ev.target.id);<br><br>'+
-					  '<span style="color:#b6b6b6;">// Tests:</span><br>'+
-					  'pARE ( true, <span style="color:#00FF00">e</span>, "dblclick", <span style="color:#FB0;">pDA</span> );&nbsp;&nbsp;=> <span id="myDA_1" class="pButton">&nbsp;Add&nbsp;pDA&nbsp;as&nbsp;direct&nbsp;Listener&nbsp;to&nbsp;Inner&nbsp;div.&nbsp;</span><br><br>' +
-					  'pARE ( true, <span style="color:#00FF00">e</span>, "dblclick", <span style="color:#00FF00">c</span> );&nbsp;&nbsp;&nbsp;&nbsp;=> <span id="myDA_2" class="pButton">&nbsp;Add&nbsp;as&nbsp;an&nbsp;indirect&nbsp;Listener&nbsp;with&nbsp;propagation&nbsp;stoppage.&nbsp;</span><br><br>' +
-					  'pARE ( false, <span style="color:#00FF00">e</span>, "dblclick", <span style="color:#FB0;">pDA</span> ),&nbsp;┐<br>'+
-					  'pARE ( false, <span style="color:#00FF00">e</span>, "dblclick", <span style="color:#00FF00">c</span> ),&nbsp;&nbsp;&nbsp;│<br>'+
-					  '<span style="color:#00FF00">out</span>.innerText = " > ";&nbsp;//&nbsp;Reset&nbsp;All&nbsp;╧> <span id="myDA_3" class="pButton">&nbsp;Remove&nbsp;Listeners&nbsp;and&nbsp;Clear&nbsp;output.&nbsp;</span><br><hr>';
+			  '<span style="text-decoration:underline;">Get element by ID</span> - <span style="color:#FB0;">dgI(i)</span>:<br><br>' +
+			  '<span style="color:#b6b6b6;">// Setup:</span><br><br>'+
+			  '&emsp;<span style="border:2px solid black;cursor:pointer;padding:2px;background:green;">&lt;span&nbsp;id="myID"&nbsp;class="myClass"&gt;</span><br><br>' +
+			  '<span style="color:#b6b6b6;">// Tests:</span><br>'+
+			  '<span style="color:#FB0;">dgI(<span style="color:white;">"myID"</span>)<span style="color:white;">;</span></span>&nbsp;=> ' + dgI("dgiSpan") + '<br>' +
+			  '<span style="color:#FB0;">dgI(<span style="color:white;">"noID"</span>)<span style="color:white;">;</span></span>&nbsp;=> ' + dgI("noDiv") + '<br><hr>'+
+			  '<span style="text-decoration:underline;">Get elements by Class Name</span> - <span style="color:#FB0;">dgCN(c)</span>:<br><br>' +
+			  '<span style="color:#b6b6b6;">// The following tests use the span from dgI above:</span><br>' +
+			  '<span style="color:#FB0;">dgCN(<span style="color:white;">"myClass"</span>)<span style="color:white;">;</span></span> => ' + dgCN("dgcnClass") + ', Length: ' + dgCN("dgcnClass").length + '<br>' +
+			  '<span style="color:#FB0;">dgCN(<span style="color:white;">"noClass"</span>)<span style="color:white;">;</span></span> => ' + dgCN("noClass") + ', Length: ' + dgCN("noClass").length + '<br><hr>'+
+			  '<span style="text-decoration:underline;">Get element by Class Name (Zero index)</span> - <span style="color:#FB0;">dgCNz(c)</span>:<br><br>' +
+			  '<span style="color:#b6b6b6;">// The following tests use the span from dgI above:</span><br>' +
+			  '<span style="color:#FB0;">dgCNz(<span style="color:white;">"myClass"</span>)<span style="color:white;">;</span></span> => ' + dgCNz("dgcnClass") + '<br>' +
+			  '<span style="color:#FB0;">dgCNz(<span style="color:white;">"noClass"</span>)<span style="color:white;">;</span></span> => ' + dgCNz("noClass") + '<br><hr>'+
+			  '<span style="text-decoration:underline;">Add/Remove Click Event Listener</span> - <span style="color:#FB0;">pARCE(a,e,c,o)</span>:<br><br>' +
+			  '<span style="color:#b6b6b6;">// Setup:</span><br><br>'+
+			  '&emsp;<span id="arceSpan" style="border:2px solid black;cursor:pointer;padding:2px;background:green;">&lt;span&nbsp;id="arceSpan"&gt;&nbsp;</span><br><br>' +
+			  'let <span style="color:#00FF00">e</span> = dgI("arceSpan");&nbsp;&nbsp;<span style="color:#b6b6b6;">//&nbsp;The&nbsp;span&nbsp;above.</span><br>' +
+			  'let <span style="color:#00FF00">c</span> = (ev)=> ev.target.innerText += "<";<br><br>' +
+			  '<span style="color:#b6b6b6;">// Tests:</span><br>'+
+			  '<span style="color:#FB0;">pARCE ( <span style="color:white;">true</span>, <span style="color:#00FF00">e</span>, <span style="color:#00FF00">c</span>, <span style="color:white;">false</span> )<span style="color:white;">;</span></span> => <span id="myARCE_1" class="pButton">&nbsp;Add&nbsp;Multi-use&nbsp;Click&nbsp;Listener&nbsp;to&nbsp;arceSpan.&nbsp;</span><br><br>' +
+			  '<span style="color:#FB0;">pARCE ( <span style="color:white;">true</span>, <span style="color:#00FF00">e</span>, <span style="color:#00FF00">c</span>, <span style="color:white;">true</span> )<span style="color:white;">;</span></span>&nbsp;&nbsp;=> <span id="myARCE_2" class="pButton">&nbsp;Add&nbsp;Single-use&nbsp;Click&nbsp;Listener&nbsp;to&nbsp;arceSpan.&nbsp;</span><br><br>' +
+			  '<span style="color:#FB0;">pARCE ( <span style="color:white;">false</span>, <span style="color:#00FF00">e</span>, <span style="color:#00FF00">c</span> )<span style="color:white;">;</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> <span id="myARCE_3" class="pButton">&nbsp;Remove&nbsp;Click&nbsp;Listener&nbsp;from&nbsp;arceSpan.&nbsp;</span><br><hr>' +
+			  '<span style="text-decoration:underline;">Add/Remove Event Listener</span> - <span style="color:#FB0;">pARE(a,e,t,c,o)</span>:<br><br>' +
+			  '<span style="color:#b6b6b6;">// Setup:</span><br><br>'+
+			  '&emsp;<span id="areSpan" style="border:2px solid black;cursor:pointer;padding:2px;background:green;">&lt;span&nbsp;id="areSpan"&gt;&nbsp;</span><br><br>' +
+			  'let <span style="color:#00FF00">e</span> = dgI("areSpan");&nbsp;&nbsp;<span style="color:#b6b6b6;">//&nbsp;The&nbsp;span&nbsp;above.</span><br>' +
+			  'let <span style="color:#00FF00">c1</span> = (ev)=> ev.target.innerText += "<";<br>' +
+			  'let <span style="color:#00FF00">c2</span> = (ev)=> ev.target.innerText += ">";<br><br>' +
+			  '<span style="color:#b6b6b6;">// Tests:</span><br>'+
+			  '<span style="color:#FB0;">pARE ( <span style="color:white;">true</span>, <span style="color:#00FF00">e</span>, <span style="color:white;">"mouseenter"</span>, <span style="color:#00FF00">c1</span>, <span style="color:white;">false</span> )<span style="color:white;">;</span></span> => <span id="myARE_1" class="pButton">&nbsp;Add&nbsp;Multi-use&nbsp;Listener&nbsp;to&nbsp;areSpan.&nbsp;</span><br><br>' +
+			  '<span style="color:#FB0;">pARE ( <span style="color:white;">true</span>, <span style="color:#00FF00">e</span>, <span style="color:white;">"mouseleave"</span>, <span style="color:#00FF00">c2</span> )<span style="color:white;">;</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> <span id="myARE_2" class="pButton">&nbsp;Add&nbsp;Multi-use&nbsp;Listener&nbsp;to&nbsp;areSpan.&nbsp;</span><br><br>' +
+			  '<span style="color:#FB0;">pARE ( <span style="color:white;">true</span>, <span style="color:#00FF00">e</span>, <span style="color:white;">"mouseenter"</span>, <span style="color:#00FF00">c1</span>, <span style="color:white;">true</span> )<span style="color:white;">;</span></span>&nbsp;&nbsp;=> <span id="myARE_3" class="pButton">&nbsp;Add&nbsp;Single-use&nbsp;Listener&nbsp;to&nbsp;areSpan.&nbsp;</span><br><br>' +
+			  '<span style="color:#FB0;">pARE ( <span style="color:white;">false</span>, <span style="color:#00FF00">e</span>, <span style="color:white;">"mouseenter"</span>, <span style="color:#00FF00">c1</span> )<span style="color:white;">;</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> <span id="myARE_4" class="pButton">&nbsp;Remove&nbsp;Listener&nbsp;from&nbsp;areSpan.&nbsp;</span><br><hr>' +
+			  '<span style="text-decoration:underline;">Deselect All</span> - <span style="color:#FB0;">pDA(e,p)</span>:<br><br>' +
+			  '<span style="color:#b6b6b6;">// Setup:</span><br><br>'+
+			  '&nbsp;Output Div:<div id="daOut" style="margin:5px 0px 0px 10px;border:2px solid white;cursor:pointer;padding:2px;width:50%;background:black;color:orange;">&nbsp;>&nbsp;</div>' +
+			  '<div id="daDiv" style="margin:10px 0px 0px 10px;border:2px solid black;cursor:pointer;padding:4px;width:50%;background:green;">&nbsp;&lt;div&nbsp;id="daDiv"&gt;&nbsp;The&nbsp;Outer&nbsp;Div<div id="daInnerDiv" style="border:2px solid black;cursor:pointer;padding:2px;background:gray;">&nbsp;&lt;div&nbsp;id="daInnerDiv"&gt;&nbsp;The&nbsp;Inner&nbsp;Div</div></div><br>' +
+			  'let <span style="color:#00FF00">out</span> = dgI("daOut");&nbsp;&nbsp;<span style="color:#b6b6b6;">//&nbsp;The&nbsp;Output.</span><br>' +
+			  'let <span style="color:#00FF00">e</span> = dgI("daInnerDiv");&nbsp;&nbsp;<span style="color:#b6b6b6;">//&nbsp;The&nbsp;Inner&nbsp;div.</span><br>' +
+			  'let <span style="color:#00FF00">c</span> = (ev)=> <span style="color:#FB0;">pDA(<span style="color:white;">ev</span>,<span style="color:white;">true</span>)</span>;<br>'+
+			  '<span style="color:#b6b6b6;">/*&nbsp;&nbsp;The next line adds a double-click listener to The Outer Div.</span><br>'+
+			  '<span style="color:#b6b6b6;">&nbsp;&nbsp;&nbsp;&nbsp;This listener prints into the output box the id of the element that is</span><br>'+
+			  '<span style="color:#b6b6b6;">&nbsp;&nbsp;&nbsp;&nbsp;actually receiving the event.&nbsp;&nbsp;&nbsp;&nbsp;*/</span><br>'+
+			  'pARE(true,dgI("daDiv"),"dblclick",(ev)=> <span style="color:#00FF00">out</span>.innerText += " > " + ev.target.id);<br><br>'+
+			  '<span style="color:#b6b6b6;">// Tests:</span><br>'+
+			  'pARE ( true, <span style="color:#00FF00">e</span>, "dblclick", <span style="color:#FB0;">pDA</span> );&nbsp;&nbsp;=> <span id="myDA_1" class="pButton">&nbsp;Add&nbsp;pDA&nbsp;as&nbsp;direct&nbsp;Listener&nbsp;to&nbsp;Inner&nbsp;div.&nbsp;</span><br><br>' +
+			  'pARE ( true, <span style="color:#00FF00">e</span>, "dblclick", <span style="color:#00FF00">c</span> );&nbsp;&nbsp;&nbsp;&nbsp;=> <span id="myDA_2" class="pButton">&nbsp;Add&nbsp;as&nbsp;an&nbsp;indirect&nbsp;Listener&nbsp;with&nbsp;propagation&nbsp;stoppage.&nbsp;</span><br><br>' +
+			  'pARE ( false, <span style="color:#00FF00">e</span>, "dblclick", <span style="color:#FB0;">pDA</span> ),&nbsp;┐<br>'+
+			  'pARE ( false, <span style="color:#00FF00">e</span>, "dblclick", <span style="color:#00FF00">c</span> ),&nbsp;&nbsp;&nbsp;│<br>'+
+			  '<span style="color:#00FF00">out</span>.innerText = " > ";&nbsp;//&nbsp;Reset&nbsp;All&nbsp;╧> <span id="myDA_3" class="pButton">&nbsp;Remove&nbsp;Listeners&nbsp;and&nbsp;Clear&nbsp;output.&nbsp;</span><br><hr>';
 	pCallback(v);
 
 	let e1 = dgI("myARCE_1");
