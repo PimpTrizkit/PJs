@@ -1,7 +1,7 @@
 const pSBC = function (p, from, to) {
     if(typeof(p)!="number"||p<-1||p>1||typeof(from)!="string"||(from[0]!='r'&&from[0]!='#')||(to&&typeof(to)!="string"))return null; //ErrorCheck
     if(!this.pSBCr)this.pSBCr=(d)=>{
-        let l=d.length,RGB=new Object();
+        let l=d.length,RGB={};
         if(l>9){
             d=d.split(",");
             if(d.length<3||d.length>4)return null;//ErrorCheck
