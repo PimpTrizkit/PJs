@@ -34,6 +34,49 @@ const pDA=(e,p)=>{if(document.selection)document.selection.empty();else if(windo
 const pGS=(n,p)=>{let x=p?n.previousSibling:n.nextSibling;while(x&&x.nodeType!=1)x=p?x.previousSibling:x.nextSibling;if(x&&x.nodeType==1)return x;else return false;}
 const pLS=[true,"PJs",false];
 const pL=(m,o)=>{if(pLS[0]){console.log(pLS[1]+" "+(pLS[2]?"("+(new Date()).toLocaleString()+")":"")+" > "+m);if(o)console.log(o);}}
+const pSBC = function (p, from, to) {
+    if(typeof(p)!="number"||p<-1||p>1||typeof(from)!="string"||(from[0]!='r'&&from[0]!='#')||(to&&typeof(to)!="string"))return null; //ErrorCheck
+    if(!this.pSBCr)this.pSBCr=(d)=>{
+        let l=d.length,RGB=new Object();
+        if(l>9){
+            d=d.split(",");
+            if(d.length<3||d.length>4)return null;//ErrorCheck
+            RGB[0]=i(d[0].split("(")[1]),RGB[1]=i(d[1]),RGB[2]=i(d[2]),RGB[3]=d[3]?parseFloat(d[3]):-1;
+        }else{
+            if(l==8||l==6||l<4)return null; //ErrorCheck
+            if(l<6)d="#"+d[1]+d[1]+d[2]+d[2]+d[3]+d[3]+(l>4?d[4]+""+d[4]:""); //3 or 4 digit
+            d=i(d.slice(1),16),RGB[0]=d>>16&255,RGB[1]=d>>8&255,RGB[2]=d&255,RGB[3]=-1;
+			if (l==9||l==5)RGB[3]=r((RGB[2]/255)*10000)/10000,RGB[2]=RGB[1],RGB[1]=RGB[0],RGB[0]=d>>24&255;
+        }
+        return RGB;}
+    var i=parseInt,r=Math.round,h=from.length>9,h=typeof(to)=="string"?to.length>9?true:to=="c"?!h:false:h,b=p<0,p=b?p*-1:p,to=to&&to!="c"?to:b?"#000000":"#FFFFFF",f=this.pSBCr(from),t=this.pSBCr(to);
+    if(!f||!t)return null; //ErrorCheck
+    if(h)return "rgb"+(f[3]>-1||t[3]>-1?"a":"")+"("+r((t[0]-f[0])*p+f[0])+","+r((t[1]-f[1])*p+f[1])+","+r((t[2]-f[2])*p+f[2])+(f[3]<0&&t[3]<0?")":","+(f[3]>-1&&t[3]>-1?r(((t[3]-f[3])*p+f[3])*10000)/10000:t[3]<0?f[3]:t[3])+")");
+    else return "#"+(0x100000000+r((t[0]-f[0])*p+f[0])*0x1000000+r((t[1]-f[1])*p+f[1])*0x10000+r((t[2]-f[2])*p+f[2])*0x100+(f[3]>-1&&t[3]>-1?r(((t[3]-f[3])*p+f[3])*255):t[3]>-1?r(t[3]*255):f[3]>-1?r(f[3]*255):255)).toString(16).slice(1,f[3]>-1||t[3]>-1?undefined:-2);
+}
+
+const pOTS=(o)=> {
+    if (!o) return 'null';
+    if (typeof(o) == "object") {
+        if (!pOTS.check) pOTS.check = new Array();
+        for (var i=0, k=pOTS.check.length ; i<k ; ++i) {
+            if (pOTS.check[i] == o) {return '{}';}
+        }
+        pOTS.check.push(o);
+    }
+    var k="",na=typeof(o.length)=="undefined"?1:0,str="";
+    for(var p in o){
+        if (na) k = "'"+p+ "':";
+        if (typeof o[p] == "string") str += k + "'" + o[p]+"',";
+        else if (typeof o[p] == "object") str += k + pOTS(o[p])+",";
+        else str += k + o[p] + ",";
+    }
+    if (typeof(o) == "object") pOTS.check.pop();
+    if (na) return "{"+str.slice(0,-1)+"}";
+    else return "["+str.slice(0,-1)+"]";
+}
+
+const pT=(s)=>{if(!s||typeof(s)!="string")return "";var s=s.replace(/^\s\s*/,''),w=/\s/,i=s.length;while(w.test(s.charAt(--i)));return s.slice(0,i+1);}
 
 let pOut = dcE("div",[["style","background:linear-gradient(135deg,#2989d8,#0e2288);color:white;font-family:monospace;text-shadow: 1px 1px 3px #000000;padding:4px;"], ["id", "outDiv"]]);
 let pTestSpan = dcE("span", [["id", "myID"],["class","myClass"]]);
@@ -70,7 +113,7 @@ const pTest=(v)=>{
 					  '&emsp;&emsp;&emsp;&emsp;["mouseleave", (ev)=>ev.target.style.background="gray"]<br>'+
 					  '] </span>)</span>;<br><br>'+
 					  '&nbsp;&nbsp;=> ' + dcE("div") + ' =><br><br>' +
-					  '<div id="dceTest"></div><br><hr>'+
+					  '<div id="dceTest"></div><hr>'+
 					  '<div class="protoHeader" myUrl="https://github.com/PimpTrizkit/PJs/wiki/06.-Add-Remove-Click-Events--(pARCE.js)"><span style="text-decoration:underline;">Add/Remove Click Event Listener</span> - <span style="color:#FB0;">pARCE(a,e,c,o)</span>:</div><br>' +
 					  '<span style="color:#b6b6b6;">// Setup:</span><br><br>'+
 					  '&emsp;<span id="arceSpan" style="border:2px solid black;cursor:pointer;padding:2px;background:green;">&lt;span&nbsp;id="arceSpan"&gt;&nbsp;</span><br><br>' +
@@ -110,11 +153,54 @@ const pTest=(v)=>{
 					  '<span style="color:#00FF00">out</span>.innerText = " > ";&nbsp;//&nbsp;Reset&nbsp;All&nbsp;╧> <span id="myDA_3" class="pButton">&nbsp;Remove&nbsp;Listeners&nbsp;and&nbsp;Clear&nbsp;output.&nbsp;</span><br><hr>'+
 					  '<div class="protoHeader" myUrl="https://github.com/PimpTrizkit/PJs/wiki/09.-Get-Sibling--(pGS.js)"><span style="text-decoration:underline;">Get Sibling</span> - <span style="color:#FB0;">pGS(n,p)</span>:</div><br>' +
 					  '<span style="color:#b6b6b6;">// Setup:</span><br><br>'+
-					  '<div id="gsDiv" style="margin:10px 0px 0px 10px;border:2px solid black;cursor:pointer;padding:4px;width:50%;background:green;">&nbsp;&lt;div&nbsp;id="gsDiv"&gt;&nbsp;A&nbsp;Text&nbsp;Node<div id="gsInnerDiv" style="border:2px solid black;cursor:pointer;padding:2px;background:gray;">&nbsp;&lt;div&nbsp;id="gsInnerDiv"&gt;&nbsp;The&nbsp;Inner&nbsp;Div</div>&nbsp;Another&nbsp;Text&nbsp;Node&nbsp;with&nbsp;a&nbsp;<span style="background:red;">span</span></div><br>' +
+					  '<div id="gsDiv" style="margin:10px 0px 0px 10px;border:2px solid black;padding:4px;width:50%;background:green;">&nbsp;&lt;div&nbsp;id="gsDiv"&gt;&nbsp;A&nbsp;Text&nbsp;Node<div id="gsInnerDiv" style="border:2px solid black;padding:2px;background:gray;">&nbsp;&lt;div&nbsp;id="gsInnerDiv"&gt;&nbsp;The&nbsp;Inner&nbsp;Div</div>&nbsp;Another&nbsp;Text&nbsp;Node&nbsp;with&nbsp;a&nbsp;<span style="background:red;">span</span></div><br>' +
 					  'let <span style="color:#00FF00">e</span> = dgI("gsInnerDiv");&nbsp;&nbsp;// The Inner div above<br><br>'+
 					  '<span style="color:#b6b6b6;">// Tests:</span><br>'+
 					  '<span style="color:#FB0;">pGS(<span style="color:#00FF00">e</span>)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> <span id="gsTest_1"></span><br>' + 
-					  '<span style="color:#FB0;">pGS(<span style="color:#00FF00">e</span>, <span style="color:white;">true</span>)</span> => <span id="gsTest_2"></span>' + 
+					  '<span style="color:#FB0;">pGS(<span style="color:#00FF00">e</span>, <span style="color:white;">true</span>)</span> => <span id="gsTest_2"></span><hr>' + 
+					  '<div class="protoHeader" myUrl="https://github.com/PimpTrizkit/PJs/wiki/10.-Log--(pL.js)"><span style="text-decoration:underline;">Log</span> - <span style="color:#FB0;">pL(m,o)</span>:</div><br>' +
+					  '<span style="color:#b6b6b6;">// Tests: (Keep in mind the output will only show in the web console. Hit Ctrl-Shift-J to open.)</span><br><br>'+
+					  '<span style="color:#FB0;">pL ( <span style="color:white;">"Dont Panic"</span> )<span style="color:white;">;</span></span> => <span id="myL_1" class="pButton">&nbsp;Run&nbsp;</span><br><br>' +
+					  '<span style="color:#b6b6b6;">// This test uses the div from the previous example.</span><br><br>'+
+					  '<span style="color:#FB0;">pL ( <span style="color:white;">"Dont Panic"</span>, <span style="color:white;">dgI("gsDiv")</span> )<span style="color:white;">;</span></span> => <span id="myL_2" class="pButton">&nbsp;Run&nbsp;</span><br><hr>' +
+					  '<div class="protoHeader" myUrl="https://github.com/PimpTrizkit/PJs/wiki/11.-Shade,-Blend-and-Convert-a-Web-Color-(pSBC.js)"><span style="text-decoration:underline;">Shade, Blend, and Convert Color</span> - <span style="color:#FB0;">pSBC(p, from, to)</span>:</div><br>' +
+					  '<span style="color:#b6b6b6;">// Setup:</span><br><br>'+
+					  'let <span style="color:#00FF00">color1</span> = "rgb(20,60,200)";<br>'+
+					  'let <span style="color:#00FF00">color2</span> = "rgba(20,60,200,0.67423)";<br>'+
+					  'let <span style="color:#00FF00">color3</span> = "#67DAF0";<br>'+
+					  'let <span style="color:#00FF00">color4</span> = "#5567DAF0";<br>'+
+					  'let <span style="color:#00FF00">color5</span> = "#F3A";<br>'+
+					  'let <span style="color:#00FF00">color6</span> = "#F3A9";<br>'+
+					  'let <span style="color:#00FF00">color7</span> = "rgb(200,60,20)";<br>'+
+					  'let <span style="color:#00FF00">color8</span> = "rgba(200,60,20,0.98631)";<br><br>'+
+					  '<span style="color:#b6b6b6;">// Tests:<br><br>'+
+					  '// Shade (Lighten or Darken)</span><br>'+
+					  '<span style="color:#FB0;">pSBC ( <span style="color:white;">0.42</span>, <span style="color:#00FF00;">color1</span> )</span>; <span style="color:black;background:white;text-shadow:0 0 0;">// <span id="mySBC_1"></span> + [42% Lighter] => <span id="mySBC_2"></span></span><br>'+
+					  '<span style="color:#FB0;">pSBC ( <span style="color:white;">-0.4</span>, <span style="color:#00FF00;">color5</span> )</span>; <span style="color:black;background:white;text-shadow:0 0 0;">// <span id="mySBC_3"></span> + [40% Darker] => <span id="mySBC_4"></span></span><br>'+
+					  '<span style="color:#FB0;">pSBC ( <span style="color:white;">0.42</span>, <span style="color:#00FF00;">color8</span> )</span>; <span style="color:black;background:white;text-shadow:0 0 0;">// <span id="mySBC_5"></span> + [42% Lighter] => <span id="mySBC_6"></span></span><br><br>'+
+					  '<span style="color:#b6b6b6;">// Shade with Conversion (use "c" as your "to" color)</span><br>'+
+					  '<span style="color:#FB0;">pSBC ( <span style="color:white;">0.42</span>, <span style="color:#00FF00;">color2</span>, <span style="color:white;">"c"</span> )</span>; <span style="color:black;background:white;text-shadow:0 0 0;">// <span id="mySBC_7"></span> + [42% Lighter] + [Convert] => <span id="mySBC_8"></span></span><br><br>'+
+					  '<span style="color:#b6b6b6;">// RGB2Hex & Hex2RGB Conversion Only (set percentage to zero)</span><br>'+
+					  '<span style="color:#FB0;">pSBC ( <span style="color:white;">0</span>, <span style="color:#00FF00;">color6</span>, <span style="color:white;">"c"</span> )</span>; <span style="color:black;background:white;text-shadow:0 0 0;">// <span id="mySBC_9"></span> + [Convert] => <span id="mySBC_10"></span></span><br><br>'+
+					  '<span style="color:#b6b6b6;">// Blending</span><br>'+
+					  '<span style="color:#FB0;">pSBC ( <span style="color:white;">-0.5</span>, <span style="color:#00FF00;">color2</span>, <span style="color:00FF00;">color8</span> )</span>; <span style="color:black;background:white;text-shadow:0 0 0;">// <span id="mySBC_11"></span> + <span id="mySBC_12"></span> + [50% Blend] => <span id="mySBC_13"></span></span><br>'+
+					  '<span style="color:#FB0;">pSBC ( <span style="color:white;">0.7</span>, <span style="color:#00FF00;">color2</span>, <span style="color:00FF00;">color7</span> )</span>; <span style="color:black;background:white;text-shadow:0 0 0;">// <span id="mySBC_14"></span> + <span id="mySBC_15"></span> + [70% Blend] => <span id="mySBC_16"></span></span><br>'+
+					  '<span style="color:#FB0;">pSBC ( <span style="color:white;">0.25</span>, <span style="color:#00FF00;">color3</span>, <span style="color:00FF00;">color7</span> )</span>; <span style="color:black;background:white;text-shadow:0 0 0;">// <span id="mySBC_17"></span> + <span id="mySBC_18"></span> + [25% Blend] => <span id="mySBC_19"></span></span><br>'+
+					  '<span style="color:#FB0;">pSBC ( <span style="color:white;">0.75</span>, <span style="color:#00FF00;">color7</span>, <span style="color:00FF00;">color3</span> )</span>; <span style="color:black;background:white;text-shadow:0 0 0;">// <span id="mySBC_20"></span> + <span id="mySBC_21"></span> + [75% Blend] => <span id="mySBC_22"></span></span><br><br>'+
+					  '<span style="color:#b6b6b6;">// Error Checking</span><br>'+
+					  '<span style="color:#FB0;">pSBC ( <span style="color:white;">0.42</span>, <span style="color:white;">"#FFBAA"</span> )</span>; <span style="color:black;background:white;text-shadow:0 0 0;">// <span id="mySBC_23"></span> + [42% Lighter] => <span id="mySBC_24"></span></span>&emsp;&emsp;<span style="background:none;color:b6b6b6;">(Invalid Input Color)</span><br>'+
+					  '<span style="color:#FB0;">pSBC ( <span style="color:white;">42</span>, <span style="color:#00FF00;">color1</span>, <span style="color:#00FF00;">color5</span> )</span>; <span style="color:black;background:white;text-shadow:0 0 0;">// <span id="mySBC_25"></span> + <span id="mySBC_26"></span> + [4200% Blend] => <span id="mySBC_27"></span></span>&emsp;&emsp;<span style="background:none;color:b6b6b6;">(Invalid Percentage Range)</span><br>'+
+					  '<span style="color:#FB0;">pSBC ( <span style="color:white;">0.42</span>, <span style="color:white;">{}</span> )</span>; <span style="color:black;background:white;text-shadow:0 0 0;">// <span id="mySBC_28"></span> + [42% Lighter] => <span id="mySBC_29"></span></span>&emsp;&emsp;<span style="background:none;color:b6b6b6;">(Strings Only for Color)</span><br>'+
+					  '<span style="color:#FB0;">pSBC ( <span style="color:white;">"42"</span>, <span style="color:#00FF00;">color1</span> )</span>; <span style="color:black;background:white;text-shadow:0 0 0;">// <span id="mySBC_30"></span> + ["42"] => <span id="mySBC_31"></span></span>&emsp;&emsp;<span style="background:none;color:b6b6b6;">(Numbers Only for Percentage)</span><br>'+
+					  '<span style="color:#FB0;">pSBC ( <span style="color:white;">0.42</span>, <span style="color:white;">"salt"</span> )</span>; <span style="color:black;background:white;text-shadow:0 0 0;">// <span id="mySBC_32"></span> + [42% Lighter] => <span id="mySBC_33"></span></span>&emsp;&emsp;<span style="background:none;color:b6b6b6;">(A Little Salt is No Good...)</span><br><br>'+
+					  '<span style="color:#b6b6b6;">// Error Check Fails&emsp;(Some Errors are not Caught)</span><br>'+
+					  '<span style="color:#FB0;">pSBC ( <span style="color:white;">0.42</span>, <span style="color:white;">"#salt"</span> )</span>; <span style="color:black;background:white;text-shadow:0 0 0;">// <span id="mySBC_34"></span> + [42% Lighter] => <span id="mySBC_35"></span></span>&emsp;&emsp;<span style="background:none;color:b6b6b6;">(...and a Pound of Salt is Jibberish)</span><br><br>'+
+					  '<span style="color:#b6b6b6;">// Ripping</span><br>'+
+					  '<span style="color:#FB0;">pSBCr ( <span style="color:#00FF00;">color4</span> )</span>; <span style="color:black;background:white;text-shadow:0 0 0;">// <span id="mySBC_36"></span> + [Rip] => <span id="mySBC_37"></span> => <span id="mySBC_38"></span></span><br><hr>'+
+					  '<div class="protoHeader" myUrl="https://github.com/PimpTrizkit/PJs/wiki/12.-Trim--(pT.js)---*The-Best-Trim-I-Have-Found*"><span style="text-decoration:underline;">Trim</span> - <span style="color:#FB0;">pT(s)</span>:</div><br>' +
+					  '<span style="color:#b6b6b6;">// Tests:<br><br>'+
+					  '<span style="color:#FB0;">pT ( <span style="color:white;">"&nbsp;&nbsp;&nbsp;This is some good trim.&nbsp;&nbsp;&nbsp;"</span> )</span>; <span style="color:#b6b6b6;">// "'+pT("   This is some good trim.   ")+'"<br>'+
+					  '<span style="color:#FB0;">pT ( <span style="color:white;">42</span> )</span>; <span style="color:#b6b6b6;">// "'+pT(42)+'"<br>'+
 					  '';
 	let e1 = dgI("myARCE_1");
 	let e2 = dgI("myARCE_2");
@@ -154,6 +240,156 @@ const pTest=(v)=>{
 	dgI("gsTest_2").innerText = pGS(e0,true);
 	
 	for ( e0 = dgCN("protoHeader"), c5 = 0, e2 = e0.length ; c5 < e2 ; ++c5 ) pARCE(true,e0[c5],(ev)=>{let t = ev.target; if(t.tagName!="DIV") t = t.parentNode;window.open(t.getAttribute("myUrl"));}), e0[c5].title="Click to open in Wiki.";
+	
+	e1 = dgI("myL_1");
+	e2 = dgI("myL_2");
+	e3 = dgI("myL_3");
+	pARCE(true,e1,(e)=>pL("Dont Panic"));
+	pARCE(true,e2,(e)=>pL("Dont Panic", dgI("gsDiv")));
+	
+	let color1 = "rgb(20,60,200)";
+	let color2 = "rgba(20,60,200,0.67423)";
+	let color3 = "#67DAF0";
+	let color4 = "#5567DAF0";
+	let color5 = "#F3A";
+	let color6 = "#F3A9";
+	let color7 = "rgb(200,60,20)";
+	let color8 = "rgba(200,60,20,0.98631)";	
+	let col;
+	
+	e0 = dgI("mySBC_1");
+	e0.innerText = color1;
+	e0.style.background = color1;
+	col = pSBC(0.42,color1);
+	e0 = dgI("mySBC_2");
+	e0.innerText = col;
+	e0.style.background = col;
+	e0 = dgI("mySBC_3");
+	e0.innerText = color5;
+	e0.style.background = color5;
+	col = pSBC(-0.4,color5);
+	e0 = dgI("mySBC_4");
+	e0.innerText = col;
+	e0.style.background = col;
+	e0 = dgI("mySBC_5");
+	e0.innerText = color8;
+	e0.style.background = color8;
+	col = pSBC(0.42,color8);
+	e0 = dgI("mySBC_6");
+	e0.innerText = col;
+	e0.style.background = col;
+	e0 = dgI("mySBC_7");
+	e0.innerText = color2;
+	e0.style.background = color2;
+	col = pSBC(0.42,color2,"c");
+	e0 = dgI("mySBC_8");
+	e0.innerText = col;
+	e0.style.background = col;
+	e0 = dgI("mySBC_9");
+	e0.innerText = color6;
+	e0.style.background = color6;
+	col = pSBC(0,color6,"c");
+	e0 = dgI("mySBC_10");
+	e0.innerText = col;
+	e0.style.background = col;
+	e0 = dgI("mySBC_11");
+	e0.innerText = color2;
+	e0.style.background = color2;
+	e0 = dgI("mySBC_12");
+	e0.innerText = color8;
+	e0.style.background = color8;
+	col = pSBC(-0.5,color2,color8);
+	e0 = dgI("mySBC_13");
+	e0.innerText = col;
+	e0.style.background = col;
+	e0 = dgI("mySBC_14");
+	e0.innerText = color2;
+	e0.style.background = color2;
+	e0 = dgI("mySBC_15");
+	e0.innerText = color7;
+	e0.style.background = color7;
+	col = pSBC(0.7,color2,color7);
+	e0 = dgI("mySBC_16");
+	e0.innerText = col;
+	e0.style.background = col;
+	e0 = dgI("mySBC_17");
+	e0.innerText = color3;
+	e0.style.background = color3;
+	e0 = dgI("mySBC_18");
+	e0.innerText = color7;
+	e0.style.background = color7;
+	col = pSBC(0.25,color3,color7);
+	e0 = dgI("mySBC_19");
+	e0.innerText = col;
+	e0.style.background = col;
+	e0 = dgI("mySBC_20");
+	e0.innerText = color7;
+	e0.style.background = color7;
+	e0 = dgI("mySBC_21");
+	e0.innerText = color3;
+	e0.style.background = color3;
+	col = pSBC(0.75,color7,color3);
+	e0 = dgI("mySBC_22");
+	e0.innerText = col;
+	e0.style.background = col;
+	e0 = dgI("mySBC_23");
+	e0.innerText = "#FFBAA";
+	e0.style.background = "#FFBAA";
+	col = pSBC(0.42,"#FFBAA");
+	e0 = dgI("mySBC_24");
+	e0.innerText = col+"";
+	e0.style.background = col;
+	e0 = dgI("mySBC_25");
+	e0.innerText = color1;
+	e0.style.background = color1;
+	e0 = dgI("mySBC_26");
+	e0.innerText = color5;
+	e0.style.background = color5;
+	col = pSBC(42,color1,color5);
+	e0 = dgI("mySBC_27");
+	e0.innerText = col+"";
+	e0.style.background = col;
+	e0 = dgI("mySBC_28");
+	e0.innerText = {};
+	e0.style.background = {};
+	col = pSBC(0.42,{});
+	e0 = dgI("mySBC_29");
+	e0.innerText = col+"";
+	e0.style.background = col;
+
+	e0 = dgI("mySBC_30");
+	e0.innerText = color1;
+	e0.style.background = color1;
+	col = pSBC("42",color1);
+	e0 = dgI("mySBC_31");
+	e0.innerText = col+"";
+	e0.style.background = col;
+
+	e0 = dgI("mySBC_32");
+	e0.innerText = "salt";
+	e0.style.background = "salt";
+	col = pSBC(0.42,"salt");
+	e0 = dgI("mySBC_33");
+	e0.innerText = col+"";
+	e0.style.background = col;
+
+	e0 = dgI("mySBC_34");
+	e0.innerText = "#salt";
+	e0.style.background = "#salt";
+	col = pSBC(0.42,"#salt");
+	e0 = dgI("mySBC_35");
+	e0.innerText = col;
+	e0.style.background = col;
+
+	e0 = dgI("mySBC_36");
+	e0.innerText = color4;
+	e0.style.background = color4;
+	col = pSBCr(color4);
+	e0 = dgI("mySBC_37");
+	e0.innerText = col;
+	e0 = dgI("mySBC_38");
+	e0.innerText = pOTS(col);
+
 }
 
 pARE(true,window,"load",pTest,true);
