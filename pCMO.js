@@ -1,6 +1,6 @@
 const pCMO =(cO,cPF)=> {
     pCMO.PFS = Symbol(),
-    pCMO.CO = typeof(cO)=="function" ? cO :()=>({}),
+    pCMO.CO = typeof(cO)=="function" ? cO : ()=>({}),
     pCMO.CPF = typeof(cPF)=="function" ?  cPF : false,
     pCMO.P =()=> {
         let x = pCMO.CO();
