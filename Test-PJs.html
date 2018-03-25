@@ -37,7 +37,7 @@ const pL=(m,o)=>{if(pLS[0]){console.log(pLS[1]+" "+(pLS[2]?"("+(new Date()).toLo
 const pSBC = function (p, from, to) {
     if(typeof(p)!="number"||p<-1||p>1||typeof(from)!="string"||(from[0]!='r'&&from[0]!='#')||(to&&typeof(to)!="string"))return null; //ErrorCheck
     if(!this.pSBCr)this.pSBCr=(d)=>{
-        let l=d.length,RGB=new Object();
+        let l=d.length,RGB={};
         if(l>9){
             d=d.split(",");
             if(d.length<3||d.length>4)return null;//ErrorCheck
@@ -51,25 +51,24 @@ const pSBC = function (p, from, to) {
         return RGB;}
     var i=parseInt,r=Math.round,h=from.length>9,h=typeof(to)=="string"?to.length>9?true:to=="c"?!h:false:h,b=p<0,p=b?p*-1:p,to=to&&to!="c"?to:b?"#000000":"#FFFFFF",f=this.pSBCr(from),t=this.pSBCr(to);
     if(!f||!t)return null; //ErrorCheck
-    if(h)return "rgb"+(f[3]>-1||t[3]>-1?"a":"")+"("+r((t[0]-f[0])*p+f[0])+","+r((t[1]-f[1])*p+f[1])+","+r((t[2]-f[2])*p+f[2])+(f[3]<0&&t[3]<0?")":","+(f[3]>-1&&t[3]>-1?r(((t[3]-f[3])*p+f[3])*10000)/10000:t[3]<0?f[3]:t[3])+")");
+    if(h)return "rgb"+(f[3]>-1||t[3]>-1?"a(":"(")+r((t[0]-f[0])*p+f[0])+","+r((t[1]-f[1])*p+f[1])+","+r((t[2]-f[2])*p+f[2])+(f[3]<0&&t[3]<0?")":","+(f[3]>-1&&t[3]>-1?r(((t[3]-f[3])*p+f[3])*10000)/10000:t[3]<0?f[3]:t[3])+")");
     else return "#"+(0x100000000+r((t[0]-f[0])*p+f[0])*0x1000000+r((t[1]-f[1])*p+f[1])*0x10000+r((t[2]-f[2])*p+f[2])*0x100+(f[3]>-1&&t[3]>-1?r(((t[3]-f[3])*p+f[3])*255):t[3]>-1?r(t[3]*255):f[3]>-1?r(f[3]*255):255)).toString(16).slice(1,f[3]>-1||t[3]>-1?undefined:-2);
 }
 
 const pOTS=(o)=> {
-    if (!o) return 'null';
+    if (!o) return null;
+	let str="",na=0,k,p;
     if (typeof(o) == "object") {
         if (!pOTS.check) pOTS.check = new Array();
-        for (var i=0, k=pOTS.check.length ; i<k ; ++i) {
-            if (pOTS.check[i] == o) {return '{}';}
-        }
+        for (k=pOTS.check.length;na<k;na++) if (pOTS.check[na]==o) return '{}';
         pOTS.check.push(o);
     }
-    var k="",na=typeof(o.length)=="undefined"?1:0,str="";
-    for(var p in o){
-        if (na) k = "'"+p+ "':";
-        if (typeof o[p] == "string") str += k + "'" + o[p]+"',";
-        else if (typeof o[p] == "object") str += k + pOTS(o[p])+",";
-        else str += k + o[p] + ",";
+    k="",na=typeof(o.length)=="undefined"?1:0;
+    for(p in o){
+        if (na) k = "'"+p+"':";
+        if (typeof o[p] == "string") str += k+"'"+o[p]+"',";
+        else if (typeof o[p] == "object") str += k+pOTS(o[p])+",";
+        else str += k+o[p]+",";
     }
     if (typeof(o) == "object") pOTS.check.pop();
     if (na) return "{"+str.slice(0,-1)+"}";
@@ -77,6 +76,25 @@ const pOTS=(o)=> {
 }
 
 const pT=(s)=>{if(!s||typeof(s)!="string")return "";var s=s.replace(/^\s\s*/,''),w=/\s/,i=s.length;while(w.test(s.charAt(--i)));return s.slice(0,i+1);}
+
+const pCMO =(cO,cPF)=> {
+	let cmo = {
+		PFS:Symbol(),
+		CO:typeof(cO)=="function" ? cO : ()=>({}),
+		CPF:typeof(cPF)=="function" ?  cPF : false,
+		P: ()=> {
+			let x = cmo.CO();
+			if (cmo.CPF) x[cmo.PFS] = cmo.CPF;
+			return new Proxy(x,cmo.H);
+		},
+		H: {
+			get: (o,p)=> { if (typeof(p) == 'symbol') { if (p == Symbol.toPrimitive && typeof(o[cmo.PFS]) == "function" ) return o[cmo.PFS]; } else if ( !(p in o) ) o[p] = cmo.P(); return o[p]; },
+			set: (o,p,n)=> { delete o[cmo.PFS]; o[p]=n; return true; }
+		}
+    };
+	return cmo.P();
+};
+
 
 let pOut = dcE("div",[["style","background:linear-gradient(135deg,#2989d8,#0e2288);color:white;font-family:monospace;text-shadow: 1px 1px 3px #000000;padding:4px;"], ["id", "outDiv"]]);
 let pTestSpan = dcE("span", [["id", "myID"],["class","myClass"]]);
@@ -156,14 +174,14 @@ const pTest=(v)=>{
 					  '<div id="gsDiv" style="margin:10px 0px 0px 10px;border:2px solid black;padding:4px;width:50%;background:green;">&nbsp;&lt;div&nbsp;id="gsDiv"&gt;&nbsp;A&nbsp;Text&nbsp;Node<div id="gsInnerDiv" style="border:2px solid black;padding:2px;background:gray;">&nbsp;&lt;div&nbsp;id="gsInnerDiv"&gt;&nbsp;The&nbsp;Inner&nbsp;Div</div>&nbsp;Another&nbsp;Text&nbsp;Node&nbsp;with&nbsp;a&nbsp;<span style="background:red;">span</span></div><br>' +
 					  'let <span style="color:#00FF00">e</span> = dgI("gsInnerDiv");&nbsp;&nbsp;// The Inner div above<br><br>'+
 					  '<span style="color:#b6b6b6;">// Tests:</span><br>'+
-					  '<span style="color:#FB0;">pGS(<span style="color:#00FF00">e</span>)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> <span id="gsTest_1"></span><br>' + 
-					  '<span style="color:#FB0;">pGS(<span style="color:#00FF00">e</span>, <span style="color:white;">true</span>)</span> => <span id="gsTest_2"></span><hr>' + 
+					  '<span style="color:#FB0;">pGS(<span style="color:#00FF00">e</span>)<span style="color:white;">;</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> <span id="gsTest_1"></span><br>' + 
+					  '<span style="color:#FB0;">pGS(<span style="color:#00FF00">e</span>, <span style="color:white;">true</span>)<span style="color:white;">;</span></span> => <span id="gsTest_2"></span><hr>' + 
 					  '<div class="protoHeader" myUrl="https://github.com/PimpTrizkit/PJs/wiki/10.-Log--(pL.js)"><span style="text-decoration:underline;">Log</span> - <span style="color:#FB0;">pL(m,o)</span>:</div><br>' +
-					  '<span style="color:#b6b6b6;">// Tests: (Keep in mind the output will only show in the web console. Hit Ctrl-Shift-J to open.)</span><br><br>'+
+					  '<span style="color:#b6b6b6;">// Tests: (Keep in mind that the output will only show in the web console. Hit Ctrl-Shift-J to open.)</span><br><br>'+
 					  '<span style="color:#FB0;">pL ( <span style="color:white;">"Dont Panic"</span> )<span style="color:white;">;</span></span> => <span id="myL_1" class="pButton">&nbsp;Run&nbsp;</span><br><br>' +
 					  '<span style="color:#b6b6b6;">// This test uses the div from the previous example.</span><br><br>'+
 					  '<span style="color:#FB0;">pL ( <span style="color:white;">"Dont Panic"</span>, <span style="color:white;">dgI("gsDiv")</span> )<span style="color:white;">;</span></span> => <span id="myL_2" class="pButton">&nbsp;Run&nbsp;</span><br><hr>' +
-					  '<div class="protoHeader" myUrl="https://github.com/PimpTrizkit/PJs/wiki/11.-Shade,-Blend-and-Convert-a-Web-Color-(pSBC.js)"><span style="text-decoration:underline;">Shade, Blend, and Convert Color</span> - <span style="color:#FB0;">pSBC(p, from, to)</span>:</div><br>' +
+					  '<div class="protoHeader" myUrl="https://github.com/PimpTrizkit/PJs/wiki/12.-Shade,-Blend-and-Convert-a-Web-Color-(pSBC.js)"><span style="text-decoration:underline;">Shade, Blend, and Convert Color</span> - <span style="color:#FB0;">pSBC(p, from, to)</span>:</div><br>' +
 					  '<span style="color:#b6b6b6;">// Setup:</span><br><br>'+
 					  'let <span style="color:#00FF00">color1</span> = "rgb(20,60,200)";<br>'+
 					  'let <span style="color:#00FF00">color2</span> = "rgba(20,60,200,0.67423)";<br>'+
@@ -173,7 +191,7 @@ const pTest=(v)=>{
 					  'let <span style="color:#00FF00">color6</span> = "#F3A9";<br>'+
 					  'let <span style="color:#00FF00">color7</span> = "rgb(200,60,20)";<br>'+
 					  'let <span style="color:#00FF00">color8</span> = "rgba(200,60,20,0.98631)";<br><br>'+
-					  '<span style="color:#b6b6b6;">// Tests:<br><br>'+
+					  '<span style="color:#b6b6b6;">// Tests:</span><br><br>'+
 					  '// Shade (Lighten or Darken)</span><br>'+
 					  '<span style="color:#FB0;">pSBC ( <span style="color:white;">0.42</span>, <span style="color:#00FF00;">color1</span> )</span>; <span style="color:black;background:white;text-shadow:0 0 0;">// <span id="mySBC_1"></span> + [42% Lighter] => <span id="mySBC_2"></span></span><br>'+
 					  '<span style="color:#FB0;">pSBC ( <span style="color:white;">-0.4</span>, <span style="color:#00FF00;">color5</span> )</span>; <span style="color:black;background:white;text-shadow:0 0 0;">// <span id="mySBC_3"></span> + [40% Darker] => <span id="mySBC_4"></span></span><br>'+
@@ -197,10 +215,58 @@ const pTest=(v)=>{
 					  '<span style="color:#FB0;">pSBC ( <span style="color:white;">0.42</span>, <span style="color:white;">"#salt"</span> )</span>; <span style="color:black;background:white;text-shadow:0 0 0;">// <span id="mySBC_34"></span> + [42% Lighter] => <span id="mySBC_35"></span></span>&emsp;&emsp;<span style="background:none;color:b6b6b6;">(...and a Pound of Salt is Jibberish)</span><br><br>'+
 					  '<span style="color:#b6b6b6;">// Ripping</span><br>'+
 					  '<span style="color:#FB0;">pSBCr ( <span style="color:#00FF00;">color4</span> )</span>; <span style="color:black;background:white;text-shadow:0 0 0;">// <span id="mySBC_36"></span> + [Rip] => <span id="mySBC_37"></span> => <span id="mySBC_38"></span></span><br><hr>'+
-					  '<div class="protoHeader" myUrl="https://github.com/PimpTrizkit/PJs/wiki/12.-Trim--(pT.js)---*The-Best-Trim-I-Have-Found*"><span style="text-decoration:underline;">Trim</span> - <span style="color:#FB0;">pT(s)</span>:</div><br>' +
-					  '<span style="color:#b6b6b6;">// Tests:<br><br>'+
-					  '<span style="color:#FB0;">pT ( <span style="color:white;">"&nbsp;&nbsp;&nbsp;This is some good trim.&nbsp;&nbsp;&nbsp;"</span> )</span>; <span style="color:#b6b6b6;">// "'+pT("   This is some good trim.   ")+'"<br>'+
-					  '<span style="color:#FB0;">pT ( <span style="color:white;">42</span> )</span>; <span style="color:#b6b6b6;">// "'+pT(42)+'"<br>'+
+					  '<div class="protoHeader" myUrl="https://github.com/PimpTrizkit/PJs/wiki/13.-Trim--(pT.js)---*The-Best-Trim-I-Have-Found*"><span style="text-decoration:underline;">Trim</span> - <span style="color:#FB0;">pT(s)</span>:</div><br>' +
+					  '<span style="color:#b6b6b6;">// Tests:</span><br><br>'+
+					  '<span style="color:#FB0;">pT ( <span style="color:white;">"&nbsp;&nbsp;&nbsp;This is some good trim.&nbsp;&nbsp;&nbsp;"</span> )</span>; => "'+pT("   This is some good trim.   ")+'"<br>'+
+					  '<span style="color:#FB0;">pT ( <span style="color:white;">42</span> )</span>; => "'+pT(42)+'"<br><hr>'+
+					  '<div class="protoHeader" myUrl="https://github.com/PimpTrizkit/PJs/wiki/11.-Object-to-String-(pOTS.js)"><span style="text-decoration:underline;">Object to String</span> - <span style="color:#FB0;">pOTS(o)</span>:</div><br>' +
+					  '<span style="color:#b6b6b6;">// Setup:</span><br><br>'+
+					  'let <span style="color:#00FF00">o</span> = {description:"mostly harmless", fashionable:false, backwaters:true, answer:42, sector:["ZZ9","Plural","Z","Alpha"], func:()=>"myFunc"};<br>'+
+					  'let <span style="color:#00FF00">b</span> = {name:"earth", stats:<span style="color:00FF00;">o</span>, creator:null, dont:undefined, panic:null};<br>'+
+					  'let <span style="color:#00FF00">j</span> = {planet:<span style="color:00FF00;">b</span>, creator:"Douglas Adams", 42:"answer"};<br>'+
+					  '<span style="color:00FF00;">b</span>.creator = <span style="color:00FF00;">j</span>;<br><br>'+
+					  '<span style="color:#b6b6b6;">// Tests:</span><br><br>'+
+					  '<span style="color:#FB0;">pOTS ( <span style="color:00FF00;">o</span> )</span>; => <span id="myOTS_1"></span><br><br>'+
+					  '<span style="color:#FB0;">pOTS ( <span style="color:00FF00;">b</span> )</span>; => <span id="myOTS_2"></span><br><br>'+
+					  '<span style="color:#FB0;">pOTS ( <span style="color:00FF00;">j</span> )</span>; => <span id="myOTS_3"></span><br><br>'+
+					  'eval( "("+<span style="color:#FB0;">pOTS(<span style="color:00FF00;">j</span>)</span>+")" ).planet.stats.func(); => <span id="myOTS_4"></span><br><hr>'+
+					  '<div class="protoHeader" myUrl="https://github.com/PimpTrizkit/PJs/wiki/14.-Trim--(pT.js)---*The-Best-Trim-I-Have-Found*"><span style="text-decoration:underline;">Complex Multidimensional Object</span> - <span style="color:#FB0;">pCMO(oF,pF)</span>:</div><br>' +
+					  '<span style="color:#b6b6b6;">// A Tests:</span><br><br>'+
+					  'let <span style="color:#00FF00">cmoA</span> = <span style="color:#FB0;">pCMO()</span>; <span style="color:#b6b6b6;">// Creates the first dimensional (root) object.</span><br><br>'+
+					  '<span style="color:#00FF00">cmoA</span>[3][6][9] = "foo"; => <span style="color:#b6b6b6;">// Creates objects for 3, 3[6] and sets 3[6][9] equal to "foo".</span><br><br>'+
+					  '<span style="color:#00FF00">cmoA</span>[3][5] = "bar"; => <span style="color:#b6b6b6;">// Sets 3[5] equal to "bar". (The above statement already created 3 for us.)</span><br><br>'+
+					  '("cmoA = " + <span style="color:#00FF00">cmoA</span> + ", cmoA[3] = " + <span style="color:#00FF00">cmoA</span>[3]) => <span id="myCMO_1">&nbsp;</span><br><br>'+
+					  '("cmoA[3][5] = "+<span style="color:#00FF00">cmoA</span>[3][5]+", cmoA[3][6][9] = "+<span style="color:#00FF00">cmoA</span>[3][6][9]) => <span id="myCMO_2">&nbsp;</span><br><br>'+
+					  '("cmoA[0] = "+<span style="color:#00FF00">cmoA</span>[0]) => <span id="myCMO_3">&nbsp;</span> <span style="color:#b6b6b6;">// The act of accessing unset items will create them.</span><br><br>'+
+					  '("cmoA[2][5] = "+<span style="color:#00FF00">cmoA</span>[2][5]) => <span id="myCMO_4">&nbsp;</span> <span style="color:#b6b6b6;">// Creates 2 and 2[5] (an empty object). Then returns 2[5] for output for `toString`.</span><br><br>'+
+					  '<span style="color:#b6b6b6;">// B Tests:</span><br><br>'+
+					  'let <span style="color:#00FF00">cmoB</span> = <span style="color:#FB0;">pCMO(</span> ()=> ( {myVal:42} ) <span style="color:#FB0;">)</span>; <span style="color:#b6b6b6;">// Using a custom creator function for the objects.</span><br><br>'+
+					  '<span style="color:#00FF00">cmoB</span>[3][6][9] = "foo"; => <span style="color:#b6b6b6;">// Same as the first test, but with custom creator function. Note how the string "foo" is at 3[6][9], not an instance of the custom object.</span><br><br>'+
+					  '("cmoB[3][6][9] = "+<span style="color:#00FF00">cmoB</span>[3][6][9]) => <span id="myCMO_5">&nbsp;</span><br><br>'+
+					  '("cmoB[3][6] = "+<span style="color:#00FF00">cmoB</span>[3][6]) => <span id="myCMO_6">&nbsp;</span> <span style="color:#b6b6b6;">// 3[6] was created and populated above. Therefore the node is returned.</span><br><br>'+
+					  '("cmoB[2][5].myVal = "+<span style="color:#00FF00">cmoB</span>[2][5].myVal) => <span id="myCMO_7">&nbsp;</span> <span style="color:#b6b6b6;">// Creates 2 and 2[5] using the custom creator function. Then returns 2[5].myVal for output for `toString`.</span><br><br>'+
+					  '<span style="color:#b6b6b6;">// C Tests:</span><br><br>'+
+					  'let <span style="color:#00FF00">cmoC</span> = <span style="color:#FB0;">pCMO(</span> false<span style="color:#FB0;">,</span> ()=> 42 <span style="color:#FB0;">)</span>; <span style="color:#b6b6b6;">// Using a custom creator function for the unset objects, when access is attempted. This can be used to simulate prefilling.</span><br><br>'+
+					  '<span style="color:#00FF00">cmoC</span>[3][6][9] = "foo"; => <span style="color:#b6b6b6;">// Same as the first test.</span><br><br>'+
+					  '("cmoC[3][6][9] = "+<span style="color:#00FF00">cmoC</span>[3][6][9]) => <span id="myCMO_8">&nbsp;</span> <span style="color:#b6b6b6;">// Same as A test.</span><br><br>'+
+					  '("cmoC[3][6] = "+<span style="color:#00FF00">cmoC</span>[3][6]) => <span id="myCMO_9">&nbsp;</span> <span style="color:#b6b6b6;">// Node returned because its not empty.</span><br><br>'+
+					  '("cmoC[2][5] = "+<span style="color:#00FF00">cmoC</span>[2][5]) => <span id="myCMO_10">&nbsp;</span> <span style="color:#b6b6b6;">// The object is created here but empty (unset) so therefore it runs the creator function for unset items and returns the result.</span><br><br>'+
+					  '<span style="color:#b6b6b6;">// D Tests:</span><br><br>'+
+					  'let <span style="color:#00FF00">c</span> = 0;<br><br>'+
+					  'let <span style="color:#00FF00">cmoD</span> = <span style="color:#FB0;">pCMO(</span> ()=>({name:"Node_"+(++<span style="color:#00FF00">c</span>),count:<span style="color:#00FF00">c</span>})<span style="color:#FB0;">,</span> (hint)=>{if (hint=="string") return "Unset item at "+this.count; return -1;} <span style="color:#FB0;">)</span>; <span style="color:#b6b6b6;">// Using both custom creator functions.</span><br><br>'+
+					  '<span style="color:#00FF00">cmoD</span>[3][6][9] = "foo"; => <span style="color:#b6b6b6;">// Same as the first test.</span><br><br>'+
+					  '("cmoD[3][6][9] = "+<span style="color:#00FF00">cmoD</span>[3][6][9]) => <span id="myCMO_11">&nbsp;</span> <span style="color:#b6b6b6;">// Same as before.</span><br><br>'+
+					  '("cmoD[3][6] = "+<span style="color:#00FF00">cmoD</span>[3][6]) => <span id="myCMO_12">&nbsp;</span> <span style="color:#b6b6b6;">// Node returned because its not empty.</span><br><br>'+
+					  '("cmoD[2][4] = "+<span style="color:#00FF00">cmoD</span>[2][4]) => <span id="myCMO_13">&nbsp;</span> <span style="color:#b6b6b6;">// This creates 2[4] but overrides the output because 2[4] is empty.</span><br><br>'+
+					  '(`cmoD[2][4] = ${<span style="color:#00FF00">cmoD</span>[2][4]}`) => <span id="myCMO_14">&nbsp;</span> <span style="color:#b6b6b6;">// 2[4] was created above, but is still empty. The output still overridden.</span><br><br>'+
+					  '("cmoD[2][4].name = "+<span style="color:#00FF00">cmoD</span>[2][4].name) => <span id="myCMO_15">&nbsp;</span> <span style="color:#b6b6b6;">// 2[4] is alive and well.</span><br><br>'+
+					  '<span style="color:#b6b6b6;">// E Tests:</span><br><br>'+
+					  'let <span style="color:#00FF00">cmoE</span> = <span style="color:#FB0;">pCMO(</span> ()=>[] <span style="color:#FB0;">)</span>; <span style="color:#b6b6b6;">// Using an array as the node.</span><br><br>'+
+					  '<span style="color:#00FF00">cmoE</span>[3][6][9] = "foo"; => <span style="color:#b6b6b6;">// Same as the first test.</span><br><br>'+
+					  '("cmoE[3][6][9] = "+<span style="color:#00FF00">cmoE</span>[3][6][9]) => <span id="myCMO_16">&nbsp;</span> <span style="color:#b6b6b6;">// Same as before.</span><br><br>'+
+					  '("cmoE[3][6] = "+<span style="color:#00FF00">cmoE</span>[3][6]) => <span id="myCMO_17">&nbsp;</span> <span style="color:#b6b6b6;">// Node returned because its not empty.</span><br><br>'+
+					  '("cmoE[3][6].length = "+<span style="color:#00FF00">cmoE</span>[3][6].length) => <span id="myCMO_18">&nbsp;</span> <span style="color:#b6b6b6;">// Node is array with length.</span><br><br>'+
+					  '("cmoE[2][4] = "+<span style="color:#00FF00">cmoE</span>[2][4]) => <span id="myCMO_19">&nbsp;</span> <span style="color:#b6b6b6;">// This creates 2[4] and returns the empty node.</span><br><br>'+
 					  '';
 	let e1 = dgI("myARCE_1");
 	let e2 = dgI("myARCE_2");
@@ -389,7 +455,51 @@ const pTest=(v)=>{
 	e0.innerText = col;
 	e0 = dgI("mySBC_38");
 	e0.innerText = pOTS(col);
+	
+	let o = {description:"mostly harmless", fashionable:false, backwaters:true, answer:42, sector:["ZZ9","Plural","Z","Alpha"], func:()=>"myFunc"};
+	let b = {name:"earth", stats:o, creator:null, dont:undefined, panic:null};
+	let j = {planet:b, creator:"Douglas Adams", 42:"answer"};
+	b.creator = j;
+	dgI("myOTS_1").innerText = pOTS(o);
+	dgI("myOTS_2").innerText = pOTS(b);
+	dgI("myOTS_3").innerText = pOTS(j);
+	dgI("myOTS_4").innerText = (eval("("+pOTS(j)+")")).planet.stats.func();
+	
+	e0 = pCMO();
+	e0[3][6][9] = "foo";
+	e0[3][5] = "bar";
+	dgI("myCMO_1").innerText = '"cmoA = '+e0+', cmoA[3] = '+e0[3]+'"';
+	dgI("myCMO_2").innerText = '"cmoA[3][5] = '+e0[3][5]+', cmoA[3][6][9] = '+e0[3][6][9]+'"';
+	dgI("myCMO_3").innerText = '"cmoA[0] = '+e0[0]+'"';
+	dgI("myCMO_4").innerText = '"cmoA[2][5] = '+e0[2][5]+'"';
 
+	e0 = pCMO(()=>({myVal:42}));
+	e0[3][6][9] = "foo";
+	dgI("myCMO_5").innerText = '"cmoB[3][6][9] = '+e0[3][6][9]+'"';
+	dgI("myCMO_6").innerText = '"cmoB[3][6] = '+e0[3][6]+'"';
+	dgI("myCMO_7").innerText = '"cmoB[2][5].myVal = '+e0[2][5].myVal+'"';
+
+	e0 = pCMO(false,()=>42);
+	e0[3][6][9] = "foo";
+	dgI("myCMO_8").innerText = '"cmoC[3][6][9] = '+e0[3][6][9]+'"';
+	dgI("myCMO_9").innerText = '"cmoC[3][6] = '+e0[3][6]+'"';
+	dgI("myCMO_10").innerText = '"cmoC[2][5] = '+e0[2][5]+'"';
+
+	e1 = 0;
+	e0 = pCMO(()=>({name:"Node_"+(++e1),count:e1}),function(hint){if (hint=="string") return "Unset item at "+this.count; return -1;});
+	e0[3][6][9] = "foo";
+	dgI("myCMO_11").innerText = '"cmoD[3][6][9] = '+e0[3][6][9]+'"';
+	dgI("myCMO_12").innerText = '"cmoD[3][6] = '+e0[3][6]+'"';
+	dgI("myCMO_13").innerText = '"cmoD[2][4] = '+e0[2][4]+'"';
+	dgI("myCMO_14").innerText = `"cmoD[2][4] = ${e0[2][4]}"`;
+	dgI("myCMO_15").innerText = '"cmoD[2][4].name = '+e0[2][4].name+'"';
+
+	e0 = pCMO(()=>[]);
+	e0[3][6][9] = "foo";
+	dgI("myCMO_16").innerText = '"cmoE[3][6][9] = '+e0[3][6][9]+'"';
+	dgI("myCMO_17").innerText = '"cmoE[3][6] = '+e0[3][6]+'"';
+	dgI("myCMO_18").innerText = '"cmoE[3][6].length = '+e0[3][6].length+'"';
+	dgI("myCMO_19").innerText = '"cmoE[2][4] = '+e0[2][4]+'"';
 }
 
 pARE(true,window,"load",pTest,true);
