@@ -1,12 +1,12 @@
 const pSBC=(p,c0,c1,l)=>{
-	let b,r,g,P,f,t,h,i=parseInt,m=Math.round,a=typeof(c1)=="string";
+	let r,g,b,P,f,t,h,i=parseInt,m=Math.round,a=typeof(c1)=="string";
 	if(typeof(p)!="number"||p<-1||p>1||typeof(c0)!="string"||(c0[0]!='r'&&c0[0]!='#')||(c1&&!a))return null;
 	if(!this.pSBCr)this.pSBCr=(d)=>{
 		let n=d.length,x={};
 		if(n>9){
-			d=d.split(","),n=d.length;
+			[r,g,b,a]=d=d.split(","),n=d.length;
 			if(n<3||n>4)return null;
-			x.r=i(d[0].split("(")[1]),x.g=i(d[1]),x.b=i(d[2]),x.a=d[3]?parseFloat(d[3]):-1
+			x.r=i(r[3]=="a"?r.slice(5):r.slice(4)),x.g=i(g),x.b=i(b),x.a=a?parseFloat(a):-1
 		}else{
 			if(n==8||n==6||n<4)return null;
 			if(n<6)d="#"+d[1]+d[1]+d[2]+d[2]+d[3]+d[3]+(n>4?d[4]+d[4]:"");
