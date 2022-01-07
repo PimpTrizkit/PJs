@@ -16,7 +16,7 @@ As you can see, a number of the functions are simple. For these, the real work w
 * *More quick and simple features and versatility improvements*
 
 
-NOTE: None of these functions (files) are meant to be linked in separately. They are to be copied and pasted into the `head` of your HTML on a "as desired" basis.
+NOTE: None of these functions (files) are meant to be linked in separately. They are to be copied and pasted into the `script` elements of your HTML on a "as desired" basis.
 
 NOTE: I have used all of these functions in various situations and feel good about their performance. But, I have not fully added all practical features yet, nor tested in all relevant situations. Please feel free to chime in.
 
