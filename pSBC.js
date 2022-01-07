@@ -1,5 +1,5 @@
-// pSBC - Shade Blend Convert - Version 4.0 - 02/18/2019
-// https://github.com/PimpTrizkit/PJs/edit/master/pSBC.js
+// pSBC - Shade Blend Convert - Version 4.1 - 01/7/2021
+// https://github.com/PimpTrizkit/PJs/blob/master/pSBC.js
 
 const pSBC=(p,c0,c1,l)=>{
 	let r,g,b,P,f,t,h,m=Math.round,a=typeof(c1)=="string";
